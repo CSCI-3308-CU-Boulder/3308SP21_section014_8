@@ -1,0 +1,6 @@
+Submit a README.md as well as project milestone 2
+Read me with description and architecture
+And any code that is commited needs instructions on how to run and any dependices 
+next step to work on code
+https://www.markdownguide.org/cheat-sheet/
+use star uml or lucid charts for diagrams
