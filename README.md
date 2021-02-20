@@ -11,8 +11,7 @@ Our project is a ski website
 
 ## Project Architecture
 
-The frontend of the project is being made in HTML.
-
+The frontend of the project is being made in HTML.  
 The backend of the project is being made in SQL.
 
 ## Description
