@@ -1,7 +1,8 @@
 # 3308SP21_section014_8
 This is a README  
 Our project is a ski website
-#Team Members: 
+
+# Team Members: 
 
 Neo Rieck, Caleb Caulk, Bill Black and Drew Hockstein.
 
