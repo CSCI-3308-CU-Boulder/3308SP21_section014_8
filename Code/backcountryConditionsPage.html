@@ -15,7 +15,7 @@
                 <a class="nav-link" href="homePage.html">Home</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="weatherPage.html">Conditions</a>
+                <a class="nav-link" href="resortConditionsPage.html">Conditions</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="resortMap.html">Resorts</a>
@@ -37,26 +37,27 @@
 
 <!-- API Source: http://www.onthesnow.com/widget -->
 <div class="container-fluid">
-    <h1>Ski Bumz Weather</h1>
-    <div class="container">
-        <div class="ots-widget">
-            <iframe border="0" frameborder="0" height="800" id="o53351" scrolling="yes"
-                    src="https://www.onthesnow.com/widget/list?regionId=251&color=b&open=all"
-                    width="1200"></iframe>
-            <p><a href="https://www.onthesnow.com/colorado/skireport.html" target="_blank">Powered by OnTheSnow.com</a>
-            </p>
+    <h1>Ski Bumz Resort Conditions</h1>
+    <ul class="nav nav-pills nav-justified">
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="resortConditionsPage.html">Resort Conditions</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Backcountry Conditions</a>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="container">
+            <!-- BEGIN Powder Project Map-->
+            <!-- https://www.powderproject.com/widget?action=configure-->
+            <iframe style="width:100%; max-width:1200px; height:500px;" frameborder="0" scrolling="yes" src="https://www.powderproject.com/widget/map?favs=1&location=fixed&x=-11714883&y=4865172&z=6.5&h=500"></iframe>
+            <!-- END Powder Project -->
+            <!-- BEGIN Powder Project Snow Reports-->
+            <iframe style="width:100%; max-width:1200px; height:400px;" frameborder="0" scrolling="yes" src="https://www.powderproject.com/widget/conditions?v=3&x=-11784398&y=4813825&z=5&height=400"></iframe>
+            <!-- END Powder Project -->
         </div>
+    </div>
 
-    </div>
-    <div class="container">
-        <!-- BEGIN Powder Project Map-->
-        <!-- https://www.powderproject.com/widget?action=configure-->
-        <iframe style="width:100%; max-width:1200px; height:500px;" frameborder="0" scrolling="yes" src="https://www.powderproject.com/widget/map?favs=1&location=fixed&x=-11714883&y=4865172&z=6.5&h=500"></iframe>
-        <!-- END Powder Project -->
-        <!-- BEGIN Powder Project Snow Reports-->
-        <iframe style="width:100%; max-width:1200px; height:400px;" frameborder="0" scrolling="yes" src="https://www.powderproject.com/widget/conditions?v=3&x=-11784398&y=4813825&z=5&height=400"></iframe>
-        <!-- END Powder Project -->
-    </div>
 </div>
 <br>
 <br>
