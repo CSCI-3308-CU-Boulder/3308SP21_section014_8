@@ -12,7 +12,7 @@ CREATE TABLE Runs_table(
 	resort_name VARCHAR(30) FOREIGN KEY,
 	type_of_run VARCHAR(10) NOT NULL,
 	vertical_feet INTEGER,
-	run_name VARCHAR(30) NOT NULL,
+	run_name VARCHAR(30) NOT NULL PRIMARY KEY,
 	groomed BOOLEAN
 );
 
@@ -28,6 +28,21 @@ CREATE TABLE Resort(
 	acreage INTEGER,
 	address VARCHAR(100) NOT NULL,
 	phone_number VARCHAR(10)
+);
+
+CREATE TABLE User(
+	user_name VARCHAR(30) PRIMARY KEY,
+	password VARCHAR(30),
+	email VARCHAR(30)
+);
+
+CREATE TABLE Stat_tracker_table(
+	num_runs_done INTEGER,
+	vertical_feet INTEGER,
+	num_resorts_visited INTEGER,
+	resorts_visited text[],
+	days INTEGER,
+	user_name VARCHAR(30) PRIMARY KEY
 );
 
 INSERT INTO Resort (resort_name, number_runs_open, number_runs_groomed, percent_open, number_green, number_blue, number_black, number_lifts, acreage, address, phone_number) VALUES
@@ -190,5 +205,4 @@ INSERT INTO Runs_table (resort_name, type_of_run, run_name) VALUES
 ('Winter Park Resort','green','Marmot Flats'),
 ('Winter Park Resort','green','Turnpike'),
 ('Winter Park Resort','green','Bobcat'),
-('Winter Park Resort','blue','Larry Sale')
-;
+('Winter Park Resort','blue','Larry Sale');
