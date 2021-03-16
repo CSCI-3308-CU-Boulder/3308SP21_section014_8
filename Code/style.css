@@ -5,7 +5,7 @@ h1 {
 	text-align: center;
 }
 table, th, td{
-    border: 1px solid black;
+    border: 2px solid blue;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
