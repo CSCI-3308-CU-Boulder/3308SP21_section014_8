@@ -9,7 +9,7 @@ CREATE TABLE Conditions (
 );
 
 CREATE TABLE Runs_table(
-	resort_name VARCHAR(30) FOREIGN KEY,
+	resort_name VARCHAR(30) NOT NULL FOREIGN KEY,
 	type_of_run VARCHAR(10) NOT NULL,
 	vertical_feet INTEGER,
 	run_name VARCHAR(30) NOT NULL PRIMARY KEY,
@@ -32,8 +32,11 @@ CREATE TABLE Resort(
 
 CREATE TABLE User(
 	user_name VARCHAR(30) PRIMARY KEY,
-	password VARCHAR(30),
-	email VARCHAR(30)
+	password VARCHAR(30) NOT NULL,
+	email VARCHAR(30) NOT NULL,
+	name VARCHAR(30) NOT NULL,
+	skier_type VARCHAR(30),
+	skier_or_snowboarder VARCHAR(30)
 );
 
 CREATE TABLE Stat_tracker_table(
