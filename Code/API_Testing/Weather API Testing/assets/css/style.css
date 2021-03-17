@@ -1,0 +1,48 @@
+h1 {
+    text-align: center;
+}
+.card-title{
+    text-align: center;
+}
+table, th, td{
+    border: 2px solid blue;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.footer {
+    position: static;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    text-align: center;
+}
+
+
+/* Conditions Page */
+
+.card-container {
+    height: 200px;
+    margin-top: 200px;
+}
+
+.card-body {
+    padding: 10px;
+    text-align: center;
+}
+
+.container-hue,
+.container-white {
+    border-radius: 10px;
+}
+
+.container-white {
+    background-color: white;
+}
+
+.map {
+    margin-top: 200px;
+}
+
+
