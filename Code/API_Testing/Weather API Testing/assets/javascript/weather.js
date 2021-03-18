@@ -4,7 +4,6 @@ function getCondObj(response) {
     let condObj = {};
 
     condObj['Description'] = response.weather[0].description;
-
     condObj['Temperature'] = (response.main.temp);
     condObj['Temp-unit'] = 'F';
     condObj['Wind Speed'] = (response.wind.speed + ' mph');
@@ -14,7 +13,7 @@ function getCondObj(response) {
 
 
 /* Update the cards displaying the current weather conditions passed in.*/
-function updateCards(iconId, condObj, bgColor, timezone) {
+function updateCards(condObj) {
     $('#description').text(capitalizeFirst(condObj['Description']));
     $('#wind-speed').text(condObj['Wind Speed']);
     $('#degrees').text(Math.floor(condObj['Temperature']));
@@ -54,12 +53,8 @@ function getWeather(resortLat, resortLon, resortName, resortObj) {
             weatherCode = response.weather[0].id;
             console.log(weatherCode);
 
-            let iconId = response.weather[0].icon,
-                bgColor = codes[weatherCode].params.color,
-                timezone = resortObj[resortName].tz;
-
             // Create and display the card showing weather conditions.
-            updateCards(iconId, getCondObj(response), bgColor, timezone);
+            updateCards(getCondObj(response));
 
         })
     }

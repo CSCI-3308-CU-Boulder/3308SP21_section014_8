@@ -12,7 +12,7 @@ $(document).ready(() => {
     console.log(resortObj);
 
     $('#map').attr('src', `https://www.google.com/maps/embed/v1/view?key=${MAPS_KEY}
-    &center=47.608868,-122.335884&zoom=18&maptype=satellite`);
+    &center=39.5501,-105.7821&zoom=8&maptype=satellite`);
 
     $(document.body).on('click', 'a', function () {
 
