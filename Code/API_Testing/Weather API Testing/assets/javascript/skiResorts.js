@@ -14,11 +14,6 @@ let skiResorts = {
         "long": "-106.0384",
         "tz": "America/Denver"
     },
-    "park-city": {
-        "lat": "40.6461",
-        "long": "-111.4980",
-        "tz": "America/Denver"
-    },
     "keystone": {
         "lat": "39.5792",
         "long": "-105.9347",
