@@ -24,7 +24,7 @@ function updateCards(condObj) {
 /* Main API function.  Pass in lat long and name to call weather API, get the
     weather code and conditions, create a card, show the location on the map,
     then call the light change API */
-function getWeather(resortLat, resortLon, resortName, resortObj) {
+function getWeather(resortLat, resortLon) {
     let weatherCode, units,
         apiKey = WEATHER_KEY;
 
@@ -33,14 +33,7 @@ function getWeather(resortLat, resortLon, resortName, resortObj) {
 
     let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${resortLat}&lon=${resortLon}&APPID=${apiKey}&units=${units}`;
 
-    if (resortObj[resortName].test) {
 
-        weatherCode = resortObj[resortName].code;
-        weatherCode = weatherCode.toString();
-        updateCards(resortObj[resortName].icon, testCondObj, '#FFFFFF', 'America/Los_Angeles');
-        $('#map').attr('src', `https://www.google.com/maps/embed/v1/view?key=${MAPS_KEY}&center=${resortLat},${resortLon}&zoom=14&maptype=satellite`);
-
-    } else {
         $.ajax({
             url: weatherUrl,
             method: 'GET'
@@ -57,5 +50,4 @@ function getWeather(resortLat, resortLon, resortName, resortObj) {
             updateCards(getCondObj(response));
 
         })
-    }
 }

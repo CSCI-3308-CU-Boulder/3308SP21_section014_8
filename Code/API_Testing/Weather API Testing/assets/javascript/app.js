@@ -11,24 +11,22 @@ $(document).ready(() => {
 
     console.log(resortObj);
 
+    //loading map to colorado initially
     $('#map').attr('src', `https://www.google.com/maps/embed/v1/view?key=${MAPS_KEY}
     &center=39.5501,-105.7821&zoom=8&maptype=satellite`);
 
+    //on click of dropdown menu
     $(document.body).on('click', 'a', function () {
-
-        resortObj = skiResorts;
 
 
         let resortName = $(this).parent().attr('data-name'),
-
             lat = resortObj[resortName].lat,
             lon = resortObj[resortName].long;
 
         console.log(resortObj[resortName].lat);
 
-        $('#page-header').text(capitalizeFirst(addSpaces(resortName)));;
 
-        /* Call the getWeather function with the clicked item's lat, long, and name. */
-        getWeather(lat, lon, resortName, resortObj);
+        /* Call the getWeather function with the clicked item's lat, long. */
+        getWeather(lat, lon);
     })
 })
