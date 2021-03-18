@@ -3,10 +3,10 @@
 function getCondObj(response) {
     let condObj = {};
 
-    condObj['Description'] = response.weather[0].description;
-    condObj['Temperature'] = (response.main.temp);
+    condObj['Description'] = response.current.weather[0].description;
+    condObj['Temperature'] = (response.current.temp);
     condObj['Temp-unit'] = 'F';
-    condObj['Wind Speed'] = (response.wind.speed + ' mph');
+    condObj['Wind Speed'] = (response.current.wind_speed + ' mph');
 
     return condObj;
 }
@@ -31,20 +31,20 @@ function getWeather(resortLat, resortLon) {
     units = 'imperial';
 
 
-    let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${resortLat}&lon=${resortLon}&APPID=${apiKey}&units=${units}`;
+    let weatherUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${resortLat}&lon=${resortLon}&APPID=${apiKey}&units=${units}`;
 
 
-        $.ajax({
+    $.ajax({
             url: weatherUrl,
             method: 'GET'
         }).then((response) => {
             console.log('Api has been called.');
-            console.log(response.weather[0].id);
 
             $('#map').attr('src', `https://www.google.com/maps/embed/v1/view?key=${MAPS_KEY}&center=${resortLat},${resortLon}&zoom=14&maptype=satellite`);
 
-            weatherCode = response.weather[0].id;
-            console.log(weatherCode);
+            //weatherCode = response.weather[0].id;
+            //console.log(weatherCode);
+            console.log(response);
 
             // Create and display the card showing weather conditions.
             updateCards(getCondObj(response));
