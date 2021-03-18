@@ -1,0 +1,2 @@
+const WEATHER_KEY = 'd3989e1a5afb4eac25d903729c9a444c';
+const MAPS_KEY = 'AIzaSyCaMcXnE0xBs7l37EgOEV9UDhFPYtNaJxU';
