@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link href="assets/css/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script crossorigin="anonymous" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 
 </head>
@@ -51,7 +51,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item ml-2">
                     <div class="dropdown">
-                        <button class="btn btn-dark btn-lg dropdown-toggle" type="button" data-toggle="dropdown">
+                        <button class="btn btn-dark btn-lg dropdown-toggle" data-toggle="dropdown" type="button">
                             Pick a Resort
                         </button>
                         <ul class="dropdown-menu scrollable-menu bg-dark resorts" id="nav-resorts" role="menu">
@@ -64,73 +64,57 @@
 
 
     <div class="container cards">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Condition:</th>
+                <th scope="col">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">Description</th>
+                <td>
+                    <p class="card-text" id="description">THUNDERSTORM WITH HEAVY DRIZZLE</p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Temp</th>
+                <td>
+                    <div id="degree-card"><span id='degrees'>NULL</span><span
+                            id='symbol'>&#176</span>
+                        <span id='degree-unit'>F</span></div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Feels Like</th>
+                <td>
+                    <div id="feels-like-card"><span id='feels-like'>NULL</span><span
+                            id='feels-like-symbol'>&#176</span>
+                        <span id='feels-like-degree-unit'>F</span></div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">Wind Speed</th>
+                <td>
+                    <p class="card-text" id="wind-speed">NULL</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
 
-
-
-        <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-6">
-                <div class="row" id="top">
-
-                    <div class="col-sm-12 col-md-4 col-lg-4">
-                        <div class="container-white">
-                            <div class="card-body">
-                                <div class="card-container">
-                                    <h5 class="card-title">Description</h5>
-                                    <div class="text-container">
-                                        <p class="card-text" id="description">THUNDERSTORM WITH HEAVY DRIZZLE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row" id="bottom">
-                    <div class="col-sm-12 col-md-4 col-lg-4">
-                        <div class="container-white">
-                            <div class="card-body">
-                                <div class="card-container">
-                                    <h5 class="card-title">Temperature</h5>
-                                    <div class="text-container">
-                                        <div id="degree-card"><span id='degrees'>NULL</span><span
-                                                id='symbol'>&#176</span>
-                                            <span id='degree-unit'>F</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-12 col-md-4 col-lg-4">
-                        <div class="container-white">
-                            <div class="card-body">
-                                <div class="card-container">
-                                    <h5 class="card-title">Wind Speed</h5>
-                                    <div class="text-container">
-                                        <p class="card-text" id="wind-speed">NULL</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="map">
+                <iframe allowfullscreen frameborder="0" height="460" id="map" src="" style="border:0"
+                        width="100%">
+                </iframe>
             </div>
-            <div class="col-sm-12 col-md-12 col-lg-6">
-                <div class="map">
-                    <iframe id="map" width="100%" height="460" frameborder="0" style="border:0" src=""
-                            allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 
 
 <!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script crossorigin="anonymous"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <!-- API Keys -->
 <script src="keys.js"></script>
 <!-- ski resorts object -->

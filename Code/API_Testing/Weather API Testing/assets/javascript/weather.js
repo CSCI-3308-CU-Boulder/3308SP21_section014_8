@@ -5,6 +5,7 @@ function getCondObj(response) {
 
     condObj['Description'] = response.current.weather[0].description;
     condObj['Temperature'] = (response.current.temp);
+    condObj['Feels Like'] = (response.current.feels_like);
     condObj['Temp-unit'] = 'F';
     condObj['Wind Speed'] = (response.current.wind_speed + ' mph');
 
@@ -18,6 +19,8 @@ function updateCards(condObj) {
     $('#wind-speed').text(condObj['Wind Speed']);
     $('#degrees').text(Math.floor(condObj['Temperature']));
     $('#degree-unit').text(condObj['Temp-unit']);
+    $('#feels-like').text(Math.floor(condObj['Temperature']));
+    $('#feels-like-degree-unit').text(condObj['Temp-unit']);
 }
 
 
