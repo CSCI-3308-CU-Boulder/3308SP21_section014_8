@@ -16,7 +16,7 @@ function capitalizeFirst(str) {
 /* Function to add keys from the passed in object, change '-'s to spaces,
     capitalize the first letters, and add them to the dropdown menu. */
 function addResorts(resortObj, classToAdd, idToAddTo, favBool = false) {
-    resortList = sort(Object.keys(resortObj));
+    resortList = Object.keys(resortObj);
 
     resortList.forEach((resort) => {
         let newListItem = $('<li>').addClass('dropdown-item text-light'),
