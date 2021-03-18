@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="assets/css/style.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Weather Page</title>
+    <link href="assets/css/weatherPageFormating.css" rel="stylesheet">
 
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
     <script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -14,11 +15,8 @@
 </head>
 
 <body>
-
-<!-- Main content -->
-<div>
-
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<div class="row">
+    <div class="col"><nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
@@ -43,9 +41,9 @@
                 </li>
             </ul>
         </div>
-    </nav>
-
-
+    </nav></div>
+</div>
+<div class="row">
     <nav class="navbar navbar-expand bg-dark">
         <div class="collapse navbar-collapse" id="navbarNav2">
             <ul class="navbar-nav">
@@ -61,56 +59,83 @@
             </ul>
         </div>
     </nav>
-
-
-    <div class="container cards">
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">Condition:</th>
-                <th scope="col">Value</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <th scope="row">Description</th>
-                <td>
-                    <p class="card-text" id="description">THUNDERSTORM WITH HEAVY DRIZZLE</p>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">Temp</th>
-                <td>
-                    <div id="degree-card"><span id='degrees'>NULL</span><span
+</div>
+<div class="row">
+    <div class="col-lg-8">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Condition:</th>
+                    <th>Value:</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Description</td>
+                    <td><p class="card-text" id="description">THUNDERSTORM WITH HEAVY DRIZZLE</p></td>
+                </tr>
+                <tr>
+                    <td>Temp</td>
+                    <td><div id="degree-card"><span id='degrees'>NULL</span><span
                             id='symbol'>&#176</span>
-                        <span id='degree-unit'>F</span></div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">Feels Like</th>
-                <td>
-                    <div id="feels-like-card"><span id='feels-like'>NULL</span><span
+                        <span id='degree-unit'>F</span></div></td>
+                </tr>
+                <tr>
+                    <td>Feels Like</td>
+                    <td><div id="feels-like-card"><span id='feels-like'>NULL</span><span
                             id='feels-like-symbol'>&#176</span>
-                        <span id='feels-like-degree-unit'>F</span></div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">Wind Speed</th>
-                <td>
-                    <p class="card-text" id="wind-speed">NULL</p>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-
-            <div class="map">
-                <iframe allowfullscreen frameborder="0" height="460" id="map" src="" style="border:0"
-                        width="100%">
-                </iframe>
-            </div>
+                        <span id='feels-like-degree-unit'>F</span></div></td>
+                </tr>
+                <tr>
+                    <td>Wind Speed</td>
+                    <td><p class="card-text" id="wind-speed">NULL</p></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col">
+        <div class="map">
+            <iframe allowfullscreen frameborder="0" height="460" id="map" src="" style="border:0"
+                    width="100%">
+            </iframe>
+        </div>
     </div>
 </div>
-
+<div class="row">
+    <div class="col">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Condition:</th>
+                    <th>Day 1</th>
+                    <th>Day 2</th>
+                    <th>Day 3</th>
+                    <th>Day 4</th>
+                    <th>Day 5</th>
+                    <th>Day 6</th>
+                    <th>Day 7</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr></tr>
+                <tr>
+                    <td>Temp</td>
+                    <td>NULL</td>
+                    <td>NULL</td>
+                    <td>NULL</td>
+                    <td>NULL</td>
+                    <td>NULL</td>
+                    <td>NULL</td>
+                    <td>NULL</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 <!-- jQuery -->
 <script crossorigin="anonymous"

@@ -18,6 +18,7 @@ $(document).ready(() => {
     //on click of dropdown menu
     $(document.body).on('click', 'a', function () {
 
+        console.log('hello');
 
         let resortName = $(this).parent().attr('data-name'),
             lat = resortObj[resortName].lat,

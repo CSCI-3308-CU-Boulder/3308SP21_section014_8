@@ -22,27 +22,37 @@ table, th, td{
 
 /* Conditions Page */
 
-.card-container {
+.conditions-container {
     height: 200px;
     margin-top: 200px;
 }
 
-.card-body {
+.curr-weather-table{
     padding: 10px;
-    text-align: center;
+
 }
 
-.container-hue,
-.container-white {
-    border-radius: 10px;
+.forecast-table{
+    margin-top: auto;
 }
 
-.container-white {
-    background-color: white;
-}
+/*.card-body {*/
+/*    padding: 10px;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.container-hue,*/
+/*.container-white {*/
+/*    border-radius: 10px;*/
+/*}*/
+
+/*.container-white {*/
+/*    background-color: white;*/
+/*}*/
 
 .map {
     margin-top: 200px;
+    mso-page-scale: 20;
 }
 
 
