@@ -1,5 +1,5 @@
 /* When the page is ready, load resorts into dropdown, add a map centered on
-    1325 4th Ave Seattle, and set a click function for the resorts to call the
+    Colorado, and set a click function for the resorts to call the
     getWeather function. */
 $(document).ready(() => {
     let resortObj;
@@ -7,7 +7,7 @@ $(document).ready(() => {
         to the nav-resorts id and each item will be given the class nav-item */
 
     resortObj = skiResorts;
-    addResorts(resortObj, 'nav-item', 'nav-resorts', true);
+    addResorts(resortObj, 'nav-item', 'nav-resorts');
 
     console.log(resortObj);
 
