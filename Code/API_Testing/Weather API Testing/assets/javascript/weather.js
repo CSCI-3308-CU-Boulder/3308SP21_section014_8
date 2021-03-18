@@ -5,15 +5,9 @@ function getCondObj(response) {
 
     condObj['Description'] = response.weather[0].description;
 
-    if ($('#units').prop('checked')) {
-        condObj['Temperature'] = (response.main.temp);
-        condObj['Temp-unit'] = 'F';
-        condObj['Wind Speed'] = (response.wind.speed + ' mph');
-    } else {
-        condObj['Temperature'] = (response.main.temp);
-        condObj['Temp-unit'] = 'C';
-        condObj['Wind Speed'] = (response.wind.speed + ' kph');
-    }
+    condObj['Temperature'] = (response.main.temp);
+    condObj['Temp-unit'] = 'F';
+    condObj['Wind Speed'] = (response.wind.speed + ' mph');
 
     return condObj;
 }
@@ -35,11 +29,8 @@ function getWeather(resortLat, resortLon, resortName, resortObj) {
     let weatherCode, units,
         apiKey = WEATHER_KEY;
 
-    if ($('#units').prop('checked')) {
-        units = 'imperial';
-    } else {
-        units = 'metric';
-    }
+    units = 'imperial';
+
 
     let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${resortLat}&lon=${resortLon}&APPID=${apiKey}&units=${units}`;
 
@@ -49,7 +40,6 @@ function getWeather(resortLat, resortLon, resortName, resortObj) {
         weatherCode = weatherCode.toString();
         updateCards(resortObj[resortName].icon, testCondObj, '#FFFFFF', 'America/Los_Angeles');
         $('#map').attr('src', `https://www.google.com/maps/embed/v1/view?key=${MAPS_KEY}&center=${resortLat},${resortLon}&zoom=14&maptype=satellite`);
-        changeLights(weatherCode);
 
     } else {
         $.ajax({
@@ -71,8 +61,6 @@ function getWeather(resortLat, resortLon, resortName, resortObj) {
             // Create and display the card showing weather conditions.
             updateCards(iconId, getCondObj(response), bgColor, timezone);
 
-            // Change the color and effect of the light.
-            changeLights(weatherCode);
         })
     }
 }
