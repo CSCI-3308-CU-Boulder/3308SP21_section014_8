@@ -108,6 +108,13 @@
         </nav>
     </div>
     <div class="row">
+        <div class="col-md-4">
+            <div style="background:red; height:100px">Column 1</div>
+            <div style="background:blue; height:200px">Column 2</div>
+        </div>
+        <div class="col-md-8" style="background:yellow; height:300px">Column 3</div>
+    </div>
+    <div class="row">
         <div class="col-lg-8">
             <div class="table-responsive">
                 <table class="table">
@@ -142,6 +149,42 @@
                 </table>
             </div>
         </div>
+            <div class="col-lg-8">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Condition:</th>
+                            <th>Value:</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Description</td>
+                            <td><p class="card-text" id="description2">THUNDERSTORM WITH HEAVY DRIZZLE</p></td>
+                        </tr>
+                        <tr>
+                            <td>Temp</td>
+                            <td><div id="degree-card2"><span id='degrees2'>NULL</span><span
+                                    id='symbol2'>&#176</span>
+                                <span id='degree-unit2'>F</span></div></td>
+                        </tr>
+                        <tr>
+                            <td>Feels Like</td>
+                            <td><div id="feels-like-card2"><span id='feels-lik2e'>NULL</span><span
+                                    id='feels-like-symbol2'>&#176</span>
+                                <span id='feels-like-degree-unit2'>F</span></div></td>
+                        </tr>
+                        <tr>
+                            <td>Wind Speed</td>
+                            <td><p class="card-text" id="wind-speed2">NULL</p></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
         <div class="col">
             <div class="map">
                 <iframe allowfullscreen frameborder="0" height="460" id="map" src="" style="border:0"
