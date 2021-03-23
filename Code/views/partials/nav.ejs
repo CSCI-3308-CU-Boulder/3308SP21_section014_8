@@ -1,21 +1,21 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+          <li class="nav-item <% if(my_title == "Ski Bumz Home"){ %> <%- 'active' %> <% } %>">
               <a class="nav-link" href="/">Home</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item <% if(my_title == "Resort Conditions"){ %> <%- 'active' %> <% } %>">
               <a class="nav-link" href="/resorts">Conditions</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item <% if(my_title == "Resort Maps"){ %> <%- 'active' %> <% } %>">
               <a class="nav-link" href="/map">Resorts</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item <% if(my_title == "Stat Tracker"){ %> <%- 'active' %> <% } %>">
               <a class="nav-link" href="/stats">Stat Tracker</a>
           </li>
       </ul>
       <ul class="navbar-nav justify-content-end ml-auto">
-          <li class="nav-item">
+          <li class="nav-item <% if(my_title == "Account Registration"){ %> <%- 'active' %> <% } %>">
               <a class="nav-link" href="/register">Sign up</a>
           </li>
           <li class="nav-item">
