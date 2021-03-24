@@ -94,9 +94,22 @@ app.get('/', function(req, res) {
 
 // map page
 app.get('/map', function(req, res) {
-	res.render('pages/map',{
-		my_title:"Resort Maps"
-	});
+  var resorts_data = "select * from resorts;";
+	db.any(resorts_data)
+    .then(function (data) {
+      console.log(data);
+      res.render('pages/map',{
+        my_title: "Resorts Page",
+        info: data
+      })
+    })
+    .catch(function (err) {
+      console.log('error', err);
+      res.render('pages/map', {
+        my_title: 'Resorts Page',
+        info: ''
+      })
+  })
 });
 
 // resort conditions page

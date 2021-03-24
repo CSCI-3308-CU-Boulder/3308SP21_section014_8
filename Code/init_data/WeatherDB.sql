@@ -7,17 +7,7 @@ CREATE TABLE IF NOT EXISTS conditions (
   sunny BOOLEAN,
   base_snow_depth INTEGER NOT NULL,
   total_snowfall INTEGER NOT NULL,
-  resort_id PRIMARY KEY
-);
-
-DROP TABLE IF EXISTS trails CASCADE;
-CREATE TABLE IF NOT EXISTS trails(
-	resort_name VARCHAR(30) NOT NULL,
-	type_of_trail VARCHAR(10) NOT NULL,
-	vertical_feet INTEGER,
-	trail_name VARCHAR(30) PRIMARY KEY,
-	groomed BOOLEAN,
-	resort_id FOREIGN KEY
+  resort_id INTEGER PRIMARY KEY
 );
 
 DROP TABLE IF EXISTS resorts CASCADE;
@@ -36,6 +26,20 @@ CREATE TABLE IF NOT EXISTS resorts(
 	resort_id INTEGER PRIMARY KEY
 );
 
+DROP TABLE IF EXISTS trails CASCADE;
+CREATE TABLE IF NOT EXISTS trails(
+	resort_name VARCHAR(30) NOT NULL,
+	type_of_trail VARCHAR(10) NOT NULL,
+	vertical_feet INTEGER,
+	trail_name VARCHAR(30) PRIMARY KEY,
+	groomed BOOLEAN,
+	resort_id INTEGER, 
+	CONSTRAINT fk_resort_id
+      FOREIGN KEY(resort_id) 
+	  REFERENCES resorts(resort_id)
+);
+
+
 DROP TABLE IF EXISTS users CASCADE;
 CREATE TABLE IF NOT EXISTS users(
 	user_name VARCHAR(30) PRIMARY KEY,
@@ -46,18 +50,18 @@ CREATE TABLE IF NOT EXISTS users(
 	skier_or_snowboarder VARCHAR(30)
 );
 
-DROP TABLE IF EXISTS resorts CASCADE;
+DROP TABLE IF EXISTS stats CASCADE;
 CREATE TABLE IF NOT EXISTS stats(
 	num_runs_done INTEGER,
 	vertical_feet INTEGER,
 	num_resorts_visited INTEGER,
-	resort_ids INTEGER[] FOREIGN KEY,
+	resort_ids INTEGER[],
 	days INTEGER,
 	user_name VARCHAR(30) PRIMARY KEY
 );
 
 INSERT INTO resorts (resort_id,resort_name, number_runs_open, number_runs_groomed, percent_open, number_green, number_blue, number_black, number_lifts, acreage, address, phone_number)
-VALUES(1,'PowderHorn Mountain Resort',50,15,1 8,15,27,5,1600'48338 Powderhorn Rd, Mesa, CO 81643','9702685700'),
+VALUES(1,'PowderHorn Mountain Resort',50,15,1,8,15,27,5,1600,'48338 Powderhorn Rd, Mesa, CO 81643','9702685700'),
 (2,'Silverton Mountain Ski Area',20,0,1,0,0,20,1,1819,'Silverton, CO 81433','9703875706'),
 (3,'Steamboat Ski Resort',169,90,1,24,71,74,18,2965,'2305 Mt Werner Cir, Steamboat Springs, CO 80487','9708790880'),
 (4,'Wolf Creek Ski Area',133,45,1,27,47,59,7,1600,'E Hwy 160 E, Pagosa Springs, CO 81147','9702645639'),
@@ -214,6 +218,6 @@ VALUES(1,'PowderHorn Mountain Resort','green','Boardwalk'),
 (13,'Winter Park Resort','blue','Crammer'),
 (13,'Winter Park Resort','green','Bill Wilsons Way'),
 (13,'Winter Park Resort','green','Marmot Flats'),
-(13,'Winter Park Resort','green','Turnpike'),
+(13,'Winter Park Resort','green','Turnpikes'),
 (13,'Winter Park Resort','green','Bobcat'),
 (13,'Winter Park Resort','blue','Larry Sale');
