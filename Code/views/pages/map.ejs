@@ -84,11 +84,32 @@
                     <td>Beaver Creek Resort</td>
                     <td>(970) 754-4636</td>
                 </tr>
+                <tr>
+                    <td>Winter Park</td>
+                    <td>(970) 726-5514</td>
+                </tr>
             </table>
         </div>
-        <%if(info){
-        		
-    		}%>
+        </br>
+        </br>
+        <!-- Looping through all the resorts and building a table to display the information -->
+        <%if(resort_info && conditions_info){
+        <!-- table header -->
+        	var table = '<div><table><tr><th>Ski Resort</th><th>Percent Open</th><th>Number runs open</th><th>New Snow</th></tr><tbody>';
+        		<!-- loop will get the ski resort percent open and number of runs and new snow then add it to the html -->
+        	for(i = 0; i < number_resorts; i++){
+        		table += '<tr>';
+        		table += '<td>'+resort_info[i].resort_name+'</td>'
+        		table += '<td>'+resort_info[i].percent_open *100+'</td>'
+        		table += '<td>'+resort_info[i].number_runs_open+'</td>'
+        		table += '<td>'+conditions_info[i].new_snow+'</td>'
+        		table += '</tr>';
+        	}
+        	<!-- table ending -->
+            table += '</tbody></table></div>';%>
+            <!-- display table html-->
+            <%- table %>
+    	<%}%>
         <div class="footer">
             <p>Ski Bumz ©</p>
         </div>
