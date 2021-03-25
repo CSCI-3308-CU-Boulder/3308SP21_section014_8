@@ -4,7 +4,7 @@ h1 {
 .card-title{
     text-align: center;
 }
-table, th, td{
+table:not(#snowTable), th, td{
     border: 2px solid blue;
     width: 50%;
     margin-left: auto;
@@ -18,29 +18,6 @@ table, th, td{
     width: 100%;
     color: black;
     text-align: center;
-}
-
-
-/* Conditions Page */
-
-.conditions-container {
-    height: 200px;
-    margin-top: 200px;
-}
-
-.curr-weather-table{
-    padding: 10px;
-
-}
-
-.forecast-table{
-    margin-top: auto;
-}
-
-
-.map {
-    margin-top: 200px;
-    mso-page-scale: 20;
 }
 
 
