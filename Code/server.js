@@ -117,7 +117,7 @@ app.get('/map', function(req, res) {
         resort_info: data[0],
         conditions_info: data[1],
         number_resorts: parseInt(data[2][0].count) 
-      })
+      });
     })
     .catch(function (err) {
       console.log('error', err);
@@ -126,8 +126,8 @@ app.get('/map', function(req, res) {
         resorts_info: '',
         conditions_info: '',
         number_resorts: ''
-      })
-  })
+      });
+  });
 });
 
 // resort conditions page
