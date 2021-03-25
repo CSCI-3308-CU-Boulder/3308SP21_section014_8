@@ -41,9 +41,38 @@ $(document).ready(() => {
             console.log(response);
 
             // Create and display the card showing weather conditions.
-            //updateCards(getCondObj(response));
+            updateBackcountryCards(getBackcountryCondObj(response));
 
         })
+    }
+
+    function getBackcountryCondObj(response) {
+        let condObj = {};
+
+        condObj['Description'] = response.current.weather[0].description;
+        condObj['Temperature'] = (response.current.temp);
+        condObj['Feels Like'] = (response.current.feels_like);
+        condObj['Temp-unit'] = 'F';
+        condObj['Wind Speed'] = (response.current.wind_speed + ' mph');
+
+        return condObj;
+    }
+
+    function updateBackcountryCards(condObj) {
+        $('#description').text(capitalizeFirst(condObj['Description']));
+        $('#wind-speed').text(condObj['Wind Speed']);
+        $('#degrees').text(Math.floor(condObj['Temperature']));
+        $('#degree-unit').text(condObj['Temp-unit']);
+        $('#feels-like').text(Math.floor(condObj['Temperature']));
+        $('#feels-like-degree-unit').text(condObj['Temp-unit']);
+    }
+
+    function capitalizeFirst(str) {
+        let newArr = str.split(' ');
+        newArr.forEach((word, index) => {
+            newArr[index] = word[0].toUpperCase() + word.substring(1);
+        })
+        return newArr.join(' ');
     }
 
 })

@@ -29,6 +29,39 @@
         <p id="lonText"></p>
         <p id="latText"></p>
 
+        <div class="table-responsive">
+            <table class="table" id="weatherTable">
+                <thead>
+                <tr>
+                    <th>Condition:</th>
+                    <th>Value:</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Description</td>
+                    <td><p class="card-text" id="description">THUNDERSTORM WITH HEAVY DRIZZLE</p></td>
+                </tr>
+                <tr>
+                    <td>Temp</td>
+                    <td><div id="degree-card"><span id='degrees'>NULL</span><span
+                                    id='symbol'>&#176</span>
+                            <span id='degree-unit'>F</span></div></td>
+                </tr>
+                <tr>
+                    <td>Feels Like</td>
+                    <td><div id="feels-like-card"><span id='feels-like'>NULL</span><span
+                                    id='feels-like-symbol'>&#176</span>
+                            <span id='feels-like-degree-unit'>F</span></div></td>
+                </tr>
+                <tr>
+                    <td>Wind Speed</td>
+                    <td><p class="card-text" id="wind-speed">NULL</p></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
         <div class="col-md-8" style="height:300px">
             <div class="map">
                 <iframe allowfullscreen frameborder="0" height="460" id="map" src="" style="border:0"
