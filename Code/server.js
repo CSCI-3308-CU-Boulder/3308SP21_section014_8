@@ -151,6 +151,13 @@ app.get('/backcountry', function(req, res) {
 	});
 });
 
+// test backcountry conditions page
+app.get('/backcountryTest', function(req, res) {
+    res.render('pages/backcountryTest',{
+        my_title:"Backcountry Conditions Test"
+    });
+});
+
 // signup page
 app.get('/register', function(req, res) {
 	res.render('pages/register',{
