@@ -1,21 +1,140 @@
 <%- include('../partials/header') %>
 <%- include('../partials/nav') %>
 
+<div class="card-group w-auto ml-5 mr-5">
 <div class="card">
+<div class="card-body ml-auto">
 <form action="#">
   <div class="form-group row">
-    <label class="col-sm-2 col-form-label" for="username">Username</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" name="username" id="username"  placeholder="Enter Username">
+    <label class="col col-form-label" for="fullName">Full Name</label>
+    <div class="col">
+      <input type="text" class="form-control" name="fullName" id="fullName"  placeholder="Enter Name">
     </div>
   </div>
   <div class="form-group row">
-    <label  class="col-sm-2 col-form-label" for="passwordFirst">Password</label>
-    <div class="col-sm-10">
+    <label class="col col-form-label"  for="emailAddress">Email address</label>
+    <div class="col">
+      <input type="email" class="form-control" name="emailAddress" id="emailAddress" placeholder="Enter email">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label  class="col col-form-label" for="passwordFirst">Password</label>
+    <div class="col">
       <input type="password" class="form-control" id="passwordFirst" name="passwordFirst" placeholder="Password">
     </div>
   </div>
-  <input type="submit" value="submit" class="btn btn-dark btn-block w-25 mx-auto">
+  <div class="form-group row">
+    <label  class="col col-form-label" for="passwordConfirm">Confirm Password</label>
+    <div class="col">
+      <input type="password" class="form-control" id="passwordConfirm" name="passwordConfirm" placeholder="Confirm Password">
+    </div>
+  </div>
+  <fieldset class="form-group">
+    <div class="row" id="visitor_type">
+      <legend class="col-form-label col pt-0">What's on your feet?</legend>
+      <div class="col">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="activity" value="">
+        <label class="form-check-label" for="activity">
+        Downhill Skis
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="activity" value="">
+        <label class="form-check-label" for="activity">
+        Cross Country Skis/Nordic
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="activity" value="">
+        <label class="form-check-label" for="activity">
+        Freestyle Snowboard
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="activity" value="">
+        <label class="form-check-label" for="activity">
+        Freeride Snowboard
+        </label>
+      </div>
+      </div>
+    </div>
+    <div class="row mt-3" id="resort_days">
+      <legend class="col-form-label col pt-0 w-auto">When do you like to hit the slopes?</legend>
+      <div class="col">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="snowday" value="">
+        <label class="form-check-label" for="snowday">
+        Sunday
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="snowday" value="">
+        <label class="form-check-label" for="snowday">
+        Monday
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="snowday" value="">
+        <label class="form-check-label" for="snowday">
+        Tuesday
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="snowday" value="">
+        <label class="form-check-label" for="snowday">
+        Wednesday
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="snowday" value="">
+        <label class="form-check-label" for="snowday">
+        Thursday
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="snowday" value="">
+        <label class="form-check-label" for="snowday">
+        Friday
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="snowday" value="">
+        <label class="form-check-label" for="snowday">
+        Saturday
+        </label>
+      </div>
+      </div>
+    </div>
+    </fieldset>
+  
 </form>
 </div>
+</div>
+<div class="card">
+  <div class="card-body mr-auto">
+  <form action="#">
+    <div class="form-group row">
+      <label class="col col-form-label" for="username">Username</label>
+      <div class="col">
+        <input type="text" class="form-control mx-n3" name="username" id="username"  placeholder="Enter Username">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label  class="col col-form-label " for="passwordFirst">Password</label>
+      <div class="col">
+        <input type="password" class="form-control mx-n3" id="passwordFirst" name="passwordFirst" placeholder="Password">
+      </div>
+    </div>
+    
+  </form>
+  </div>
+</div>
+</div>
+<table style="border: none">
+<row>
+  <td style="border: none"><input type="submit" value="submit" class="btn btn-dark btn-block w-100 mx-n2"></td>
+  <td style="border: none"><input type="submit" value="submit" class="btn btn-dark btn-block w-100 mx-2"></td>
+</row>
+</table>
 <%- include('../partials/footer') %>
