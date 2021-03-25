@@ -19,6 +19,11 @@ table:not(#snowTable), th, td{
     color: black;
     text-align: center;
 }
-
-
-
+.col-form-label {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 300px;
+}
+.card {
+    border: none;
+}
