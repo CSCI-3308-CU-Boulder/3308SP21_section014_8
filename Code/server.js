@@ -158,5 +158,12 @@ app.get('/register', function(req, res) {
 	});
 });
 
+// login page
+app.get('/login', function(req, res) {
+	res.render('pages/login',{
+		my_title:"Login"
+	});
+});
+
 app.listen(3000);
 console.log('3000 is the magic port');
