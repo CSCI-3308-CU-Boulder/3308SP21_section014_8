@@ -1,117 +1,90 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Ski Resort Map</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="assets/css/style.css">
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
 
-        <style>
-        footer {
-            text-align: center;
-            padding: 3px;
-            background-color: lightgrey;
-            color: white;
-        }
-        </style>
-    </head>
-    <body>
-        
-    <%- include('../partials/nav') %>
-
-        <div class="container">
-            <p align="center">
-                <iframe src="https://www.google.com/maps/d/embed?mid=184q1PbdJcdc4Txe4cyLoeBIM6DrX0b4i" width="640" height="480"></iframe>
-            </p>
-        </div>
-        <!-- Table for all ski resorts in map -->
-        <div class="container">
-            <table>
-                <tr>
-                    <th>Ski Resort Name:</th>
-                    <th>Phone Number:</th>
-                </tr>
-                <tr>
-                    <td>Powderhorn Mountain Resort</td>
-                    <td>(970) 268-5700</td>
-                </tr>
-                <tr>
-                    <td>Silverton Mountain Ski Area</td>
-                    <td>(970) 387-5706</td>
-                </tr>
-                <tr>
-                    <td>Steamboat Ski Resort</td>
-                    <td>(970) 879-0880</td>
-                </tr>
-                <tr>
-                    <td>Wolf Creek Ski Area</td>
-                    <td>(970) 264-5639</td>
-                </tr>
-                <tr>
-                    <td>Vail Ski Resort</td>
-                    <td>(970) 477-1777</td>
-                </tr>
-                <tr>
-                    <td>Keystone Resort</td>
-                    <td>1 (888) 697-0785</td>
-                </tr>
-                <tr>
-                    <td>Eldora Mountain</td>
-                    <td>(303) 440-8700</td>
-                </tr>
-                <tr>
-                    <td>Breckenridge</td>
-                    <td>(970) 453-5000</td>
-                </tr>
-                <tr>
-                    <td>Copper Mountain</td>
-                    <td>1 (800) 458-8386</td>
-                </tr>
-                <tr>
-                    <td>Arapahoe Basin Ski Area</td>
-                    <td>(970) 468-0718</td>
-                </tr>
-                <tr>
-                    <td>Aspen Highlands Ski Resort</td>
-                    <td>(970) 925-1220</td>
-                </tr>
-                <tr>
-                    <td>Beaver Creek Resort</td>
-                    <td>(970) 754-4636</td>
-                </tr>
-                <tr>
-                    <td>Winter Park</td>
-                    <td>(970) 726-5514</td>
-                </tr>
-            </table>
-        </div>
-        </br>
-        </br>
-        <!-- Looping through all the resorts and building a table to display the information -->
-        <%if(resort_info && conditions_info){
-        <!-- table header -->
-        	var table = '<div><table><tr><th>Ski Resort</th><th>Percent Open</th><th>Number runs open</th><th>New Snow</th></tr><tbody>';
-        		<!-- loop will get the ski resort percent open and number of runs and new snow then add it to the html -->
-        	for(i = 0; i < number_resorts; i++){
-        		table += '<tr>';
-        		table += '<td>'+resort_info[i].resort_name+'</td>'
-        		table += '<td>'+resort_info[i].percent_open *100+'</td>'
-        		table += '<td>'+resort_info[i].number_runs_open+'</td>'
-        		table += '<td>'+conditions_info[i].new_snow+'</td>'
-        		table += '</tr>';
-        	}
-        	<!-- table ending -->
-            table += '</tbody></table></div>';%>
-            <!-- display table html-->
-            <%- table %>
-    	<%}%>
-        <div class="footer">
-            <p>Ski Bumz ©</p>
-        </div>
-    </body>
-</html>
+<div class="container">
+    <p align="center">
+        <iframe src="https://www.google.com/maps/d/embed?mid=184q1PbdJcdc4Txe4cyLoeBIM6DrX0b4i" width="640" height="480"></iframe>
+    </p>
+</div>
+<!-- Table for all ski resorts in map -->
+<div class="container">
+    <table>
+        <tr>
+            <th>Ski Resort Name:</th>
+            <th>Phone Number:</th>
+        </tr>
+        <tr>
+            <td>Powderhorn Mountain Resort</td>
+            <td>(970) 268-5700</td>
+        </tr>
+        <tr>
+            <td>Silverton Mountain Ski Area</td>
+            <td>(970) 387-5706</td>
+        </tr>
+        <tr>
+            <td>Steamboat Ski Resort</td>
+            <td>(970) 879-0880</td>
+        </tr>
+        <tr>
+            <td>Wolf Creek Ski Area</td>
+            <td>(970) 264-5639</td>
+        </tr>
+        <tr>
+            <td>Vail Ski Resort</td>
+            <td>(970) 477-1777</td>
+        </tr>
+        <tr>
+            <td>Keystone Resort</td>
+            <td>1 (888) 697-0785</td>
+        </tr>
+        <tr>
+            <td>Eldora Mountain</td>
+            <td>(303) 440-8700</td>
+        </tr>
+        <tr>
+            <td>Breckenridge</td>
+            <td>(970) 453-5000</td>
+        </tr>
+        <tr>
+            <td>Copper Mountain</td>
+            <td>1 (800) 458-8386</td>
+        </tr>
+        <tr>
+            <td>Arapahoe Basin Ski Area</td>
+            <td>(970) 468-0718</td>
+        </tr>
+        <tr>
+            <td>Aspen Highlands Ski Resort</td>
+            <td>(970) 925-1220</td>
+        </tr>
+        <tr>
+            <td>Beaver Creek Resort</td>
+            <td>(970) 754-4636</td>
+        </tr>
+        <tr>
+            <td>Winter Park</td>
+            <td>(970) 726-5514</td>
+        </tr>
+    </table>
+</div>
+</br>
+</br>
+<!-- Looping through all the resorts and building a table to display the information -->
+<%if(resort_info && conditions_info){
+<!-- table header -->
+    var table = '<div><table><tr><th>Ski Resort</th><th>Percent Open</th><th>Number runs open</th><th>New Snow</th></tr><tbody>';
+        <!-- loop will get the ski resort percent open and number of runs and new snow then add it to the html -->
+    for(i = 0; i < number_resorts; i++){
+        table += '<tr>';
+        table += '<td>'+resort_info[i].resort_name+'</td>'
+        table += '<td>'+resort_info[i].percent_open *100+'</td>'
+        table += '<td>'+resort_info[i].number_runs_open+'</td>'
+        table += '<td>'+conditions_info[i].new_snow+'</td>'
+        table += '</tr>';
+    }
+    <!-- table ending -->
+    table += '</tbody></table></div>';%>
+    <!-- display table html-->
+    <%- table %>
+<%}%>
+<%- include('../partials/footer') %>

@@ -110,10 +110,10 @@ app.get('/map', function(req, res) {
     })
   //returning the data back to the map page
     .then(function (data) {
-      console.log(data);
-      console.log(data[2][0].count);
+    //   console.log(data);
+    //   console.log(data[2][0].count);
       res.render('pages/map',{
-        my_title: "Resorts Page",
+        my_title: "Resorts Map",
         resort_info: data[0],
         conditions_info: data[1],
         number_resorts: parseInt(data[2][0].count) 
@@ -122,7 +122,7 @@ app.get('/map', function(req, res) {
     .catch(function (err) {
       console.log('error', err);
       res.render('pages/map', {
-        my_title: 'Resorts Page',
+        my_title: "Resorts Map",
         resorts_info: '',
         conditions_info: '',
         number_resorts: ''

@@ -1,28 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Ski Bumz Weather</title>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="assets/css/weatherPageFormating.css" rel="stylesheet">
-
-    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
-    <script crossorigin="anonymous" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script crossorigin="anonymous" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-</head>
-<body>
-
+<%- include('../partials/header') %>
 <%- include('../partials/nav') %>
-
-<ul class="nav nav-pills nav-justified">
-    <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="resortConditionsPage.html">Resort Conditions</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="backcountryConditionsPage.html">Backcountry Conditions</a>
-    </li>
-</ul>
 
 <div class="row">
     <div class="col-md-4">
@@ -171,23 +148,4 @@
 </div>
 <br>
 <br>
-<div class="footer">
-    <p>Ski Bumz &copy</p>
-</div>
-<!-- jQuery -->
-<script crossorigin="anonymous"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<!-- API Keys -->
-<script src="assets/javascript/keys.js"></script>
-<!-- ski resorts object -->
-<script src="assets/javascript/skiResorts.js"></script>
-<!-- weatherCodes object -->
-<script src="assets/javascript/weatherCodes.js"></script>
-<!-- Weather api script -->
-<script src="assets/javascript/weather.js"></script>
-<!-- Functions to act on the text of the page. -->
-<script src="assets/javascript/textFunctions.js"></script>
-<!-- Main app.js -->
-<script src="assets/javascript/app.js"></script>
-</body>
-</html>
+<%- include('../partials/footer') %>
