@@ -53,18 +53,32 @@ $(document).ready(() => {
         condObj['Temperature'] = (response.current.temp);
         condObj['Feels Like'] = (response.current.feels_like);
         condObj['Temp-unit'] = 'F';
+        condObj['Pressure'] = (response.current.pressure + ' hPa');
+        condObj['Humidity'] = (response.current.humidity + '%');
+        condObj['Dew Point'] = (response.current.dew_point);
+        condObj['UV Index'] = (response.current.uvi);
+        condObj['Visibility'] = (response.current.visibility + ' meters');
         condObj['Wind Speed'] = (response.current.wind_speed + ' mph');
+        condObj['Wind Gusts'] = (response.current.wind_gust + ' mph');
+        condObj['Wind Direction'] = (response.current.wind_deg);
 
         return condObj;
     }
 
     function updateBackcountryCards(condObj) {
         $('#description').text(capitalizeFirst(condObj['Description']));
-        $('#wind-speed').text(condObj['Wind Speed']);
         $('#degrees').text(Math.floor(condObj['Temperature']));
         $('#degree-unit').text(condObj['Temp-unit']);
         $('#feels-like').text(Math.floor(condObj['Temperature']));
         $('#feels-like-degree-unit').text(condObj['Temp-unit']);
+        $('#pressure').text(condObj['Pressure']);
+        $('#humidity').text(condObj['Humidity']);
+        $('#dew-point').text(condObj['Dew Point']);
+        $('#uv-index').text(condObj['UV Index']);
+        $('#visibility').text(condObj['Visibility']);
+        $('#wind-speed').text(condObj['Wind Speed']);
+        $('#wind-gusts').text(condObj['Wind Gusts']);
+        $('#wind-direction').text(condObj['Wind Direction']);
     }
 
     function capitalizeFirst(str) {
