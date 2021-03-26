@@ -30,7 +30,7 @@
         <p id="latText"></p>
 
         <div class="table-responsive">
-            <table class="table" id="weatherTable">
+            <table class="table" id="backcountry-weather-table">
                 <thead>
                 <tr>
                     <th>Condition:</th>
@@ -55,8 +55,48 @@
                             <span id='feels-like-degree-unit'>F</span></div></td>
                 </tr>
                 <tr>
+                    <td>Pressure</td>
+                    <td><p class="card-text" id="pressure">NULL</p></td>
+                </tr>
+                <tr>
+                    <td>Humidity</td>
+                    <td><p class="card-text" id="humidity">NULL</p></td>
+                </tr>
+                <tr>
+                    <td>Dew Point</td>
+                    <td><p class="card-text" id="dew-point">NULL</p></td>
+                </tr>
+                <tr>
+                    <td>UV Index</td>
+                    <td><p class="card-text" id="uv-index">NULL</p></td>
+                </tr>
+                <tr>
+                    <td>Visibility</td>
+                    <td><p class="card-text" id="visibility">NULL</p></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="table-responsive">
+            <table class="table" id="wind-table">
+                <thead>
+                <tr>
+                    <th>Condition:</th>
+                    <th>Value:</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
                     <td>Wind Speed</td>
                     <td><p class="card-text" id="wind-speed">NULL</p></td>
+                </tr>
+                <tr>
+                    <td>Wind Gusts</td>
+                    <td><p class="card-text" id="wind-gusts">NULL</p></td>
+                </tr>
+                <tr>
+                    <td>Wind Direction</td>
+                    <td><p class="card-text" id="wind-direction">NULL</p></td>
                 </tr>
                 </tbody>
             </table>
