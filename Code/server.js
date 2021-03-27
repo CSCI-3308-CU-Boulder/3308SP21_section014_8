@@ -137,12 +137,12 @@ app.get('/resorts', function(req, res) {
 	});
 });
 
-// stat tracker page
-app.get('/stats', function(req, res) {
-	res.render('pages/stats',{
-		my_title:"Stat Tracker"
-	});
-});
+//// stat tracker page
+//app.get('/stats', function(req, res) {
+//	res.render('pages/stats',{
+//		my_title:"Stat Tracker"
+//	});
+//});
 
 // backcountry conditions page
 app.get('/backcountry', function(req, res) {
@@ -171,6 +171,46 @@ app.get('/login', function(req, res) {
 		my_title:"Login"
 	});
 });
+
+//app.get('/stats/add', function(req, res) {
+//    var resort_names = req.body.field_resort_name;
+//    var resort_days = req.body.field_resort_days;
+//    var runs_beginner = req.body.field_runs_beginner;
+//    var runs_intermediate = req.body.field_runs_intermediate;
+//    var runs_advancedPlus = req.body.field_runs_advancedPlus;
+////    var runs = runs_beginner + runs_intermediate + runs_advancedPlus;
+//	var insert_statement = "INSERT INTO resorts (resort_id,resort_name, number_runs_open, number_runs_groomed, percent_open, number_green, number_blue, number_black, number_lifts, acreage, address, phone_number) VALUES(1,'PowderHorn Mountain Resort',50,15,1,8,15,27,5,1600,'48338 Powderhorn Rd, Mesa, CO 81643','9702685700');";
+//
+//
+//// VALUES('" + name + "', '" + year + "', '" + major + "', " + passing_yards + ", " + rushing_yards + ", " + receiving_yards + ", '../resources/img/player1.jpg');";
+//
+//
+//
+//	res.render('pages/stats',{
+//		my_title:"Stat Tracker"
+//	});
+//});
+
+
+app.get('/stats', function(req, res) {
+    var query = 'select * from stats;';
+	db.any(query)
+        .then(function (rows) {
+            res.render('pages/stats',{
+				my_title: "Stat Tracker",
+				data: rows
+			})
+
+        })
+        .catch(function (err) {
+            console.log('error', err);
+            res.render('pages/stats', {
+                my_title: 'Stat Tracker',
+                data: ''
+            })
+        })
+});
+
 
 app.listen(3000);
 console.log('3000 is the magic port');
