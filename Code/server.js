@@ -84,12 +84,21 @@ app.use(express.static(__dirname + '/'));//This line is necessary for us to use 
   			This route will handle a single query to the football_players table which will retrieve the id & name for all of the football players.
   			Next it will pass this result to the player_info view (pages/player_info), which will use the ids & names to populate the select tag for a form
 ************************************/
+//load the home page by default
+app.get('/', function(req, res) {
+  res.render('pages/home',{
+    my_title:"Ski Bumz Home"
+  });
+  res.sendStatus(200);
+});
+
 
 // home page
-app.get('/', function(req, res) {
+app.get('/home', function(req, res) {
 	res.render('pages/home',{
 		my_title:"Ski Bumz Home"
 	});
+  res.sendStatus(200);
 });
 
 // map page
@@ -115,7 +124,7 @@ app.get('/map', function(req, res) {
       res.render('pages/map',{
         my_title: "Resorts Map",
         resort_info: data[0],
-        conditions_info: data[1],
+        conditionsInfo: data[1],
         number_resorts: parseInt(data[2][0].count) 
       });
     })
@@ -124,7 +133,49 @@ app.get('/map', function(req, res) {
       res.render('pages/map', {
         my_title: "Resorts Map",
         resorts_info: '',
-        conditions_info: '',
+        conditionsInfo: '',
+        number_resorts: ''
+      });
+  });
+});
+
+//post test to update new snow for a certain resort
+app.post('/map',function(req,res){
+  //getting resorts
+  var resorts_data = "select * from resorts;";
+  //geting new snow from conditions
+  var conditions_data = "select * from conditions;";
+  //getting the number of resorts
+  var num_resorts = "select count(*) from resorts;";
+  //querying
+  var inches = req.body.newSnowFall;
+  var update = "update conditions set new_snow = "+inches+" where resort_id = 13";
+  console.log(inches);
+  db.task('get-everything', task => {
+        return task.batch([
+            task.any(resorts_data),
+            task.any(conditions_data),
+            task.any(num_resorts),
+            task.any(update)
+        ]);
+    })
+  //returning the data back to the map page
+    .then(function (data) {
+    //   console.log(data);
+    //   console.log(data[2][0].count);
+      res.render('pages/map',{
+        my_title: "Resorts Map",
+        resort_info: data[0],
+        conditionsInfo: data[1],
+        number_resorts: parseInt(data[2][0].count) 
+      });
+    })
+    .catch(function (err) {
+      console.log('error', err);
+      res.render('pages/map', {
+        my_title: "Resorts Map",
+        resorts_info: '',
+        conditionsInfo: '',
         number_resorts: ''
       });
   });

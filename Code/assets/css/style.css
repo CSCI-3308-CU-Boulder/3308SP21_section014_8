@@ -27,3 +27,7 @@ table:not(#snowTable), th, td{
 .card {
     border: none;
 }
+
+.center{
+    text-align: center;
+}
