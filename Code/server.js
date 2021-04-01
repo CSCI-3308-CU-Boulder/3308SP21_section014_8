@@ -143,7 +143,8 @@ app.get('/map', function(req, res) {
 app.post('/map',function(req,res){
   //update the table
   var inches = req.body.newSnowFall;
-  var update = "update conditions set new_snow = "+inches+" where resort_id = 13";
+  var area = req.body.skiResort;
+  var update = "update conditions set new_snow = '"+inches+"' where resort_name = '"+area+"';";
   //getting resorts
   var resorts_data = "select * from resorts;";
   //geting new snow from conditions
@@ -161,7 +162,8 @@ app.post('/map',function(req,res){
   //returning the data back to the map page
     .then(function (data) {
       console.log(data);
-      console.log(inches)
+      console.log(inches);
+      console.log(area);
     //   console.log(data[2][0].count);
       res.render('pages/map',{
         my_title: "Resorts Map",
