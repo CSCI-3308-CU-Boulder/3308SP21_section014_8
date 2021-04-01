@@ -141,27 +141,27 @@ app.get('/map', function(req, res) {
 
 //post test to update new snow for a certain resort
 app.post('/map',function(req,res){
+  //update the table
+  var inches = req.body.newSnowFall;
+  var update = "update conditions set new_snow = "+inches+" where resort_id = 13";
   //getting resorts
   var resorts_data = "select * from resorts;";
   //geting new snow from conditions
   var conditions_data = "select * from conditions;";
   //getting the number of resorts
   var num_resorts = "select count(*) from resorts;";
-  //querying
-  var inches = req.body.newSnowFall;
-  var update = "update conditions set new_snow = "+inches+" where resort_id = 13";
-  console.log(inches);
   db.task('get-everything', task => {
         return task.batch([
+            task.any(update),
             task.any(resorts_data),
             task.any(conditions_data),
-            task.any(num_resorts),
-            task.any(update)
+            task.any(num_resorts)
         ]);
     })
   //returning the data back to the map page
     .then(function (data) {
-    //   console.log(data);
+      console.log(data);
+      console.log(inches)
     //   console.log(data[2][0].count);
       res.render('pages/map',{
         my_title: "Resorts Map",

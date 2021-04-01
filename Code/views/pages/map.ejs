@@ -9,7 +9,7 @@
 	<!-- finds the max of the new snow -->
 	for(i = 1; i < number_resorts; i++){
 		if(conditionsInfo[i].new_snow > newSnow){
-			newSnow = conditions[i].new_snow;
+			newSnow = conditionsInfo[i].new_snow;
 		}
 	}
 	output += 'With ' + newSnow + ' inches of new snow</h5><h6 class = "center">'
