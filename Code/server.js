@@ -165,9 +165,9 @@ app.post('/map',function(req,res){
     //   console.log(data[2][0].count);
       res.render('pages/map',{
         my_title: "Resorts Map",
-        resort_info: data[0],
-        conditionsInfo: data[1],
-        number_resorts: parseInt(data[2][0].count) 
+        resort_info: data[1],
+        conditionsInfo: data[2],
+        number_resorts: parseInt(data[3][0].count) 
       });
     })
     .catch(function (err) {
