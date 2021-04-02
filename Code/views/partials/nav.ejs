@@ -7,7 +7,7 @@
           <li class="nav-item <% if(my_title == "Resort Conditions"){ %> <%- 'active' %> <% } %>">
               <a class="nav-link" href="/resorts">Conditions</a>
           </li>
-          <li class="nav-item <% if(my_title == "Resort Maps"){ %> <%- 'active' %> <% } %>">
+          <li class="nav-item <% if(my_title == "Resorts Map"){ %> <%- 'active' %> <% } %>">
               <a class="nav-link" href="/map">Resorts</a>
           </li>
           <li class="nav-item <% if(my_title == "Stat Tracker"){ %> <%- 'active' %> <% } %>">
@@ -16,7 +16,7 @@
       </ul>
       <ul class="navbar-nav justify-content-end ml-auto">
           <li class="nav-item">
-              <a class="nav-link" href="/login">Login/Register</a>
+              <a class="nav-link <% if(my_title == "Login"){ %> <%- 'active' %> <% } %>" href="/login">Login/Register</a>
           </li>
       </ul>
   </div>
