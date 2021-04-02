@@ -1,0 +1,193 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+<!-- will output resorts with the most new snow -->
+<h4 class = "center">Resort(s) with most new snow</h4>
+<%if(conditionsInfo && number_resorts){
+	var newSnow = conditionsInfo[0].new_snow;
+	var output = '<h5 class = "center">';
+	<!-- finds the max of the new snow -->
+	for(i = 1; i < number_resorts; i++){
+		if(conditionsInfo[i].new_snow > newSnow){
+			newSnow = conditionsInfo[i].new_snow;
+		}
+	}
+	output += 'With ' + newSnow + ' inches of new snow</h5><h6 class = "center">'
+	<!-- will gather all the resorts who have the most new snow -->
+	for(i = 1; i < number_resorts; i++){
+		if(conditionsInfo[i].new_snow == newSnow){
+			output += conditionsInfo[i].resort_name + '</h6><h6 class = "center">';
+		}
+	}
+	output += '</h6>';
+	%>
+<%- output %>
+<%}%>
+</br>
+</br>
+<div class="container">
+    <p align="center">
+        <iframe src="https://www.google.com/maps/d/embed?mid=184q1PbdJcdc4Txe4cyLoeBIM6DrX0b4i" width="640" height="480"></iframe>
+    </p>
+</div>
+<!-- Table for all ski resorts in map -->
+<div class="container">
+    <table>
+        <tr>
+            <th>Ski Resort Name:</th>
+            <th>Phone Number:</th>
+        </tr>
+        <tr>
+            <td>Powderhorn Mountain Resort</td>
+            <td>(970) 268-5700</td>
+        </tr>
+        <tr>
+            <td>Silverton Mountain Ski Area</td>
+            <td>(970) 387-5706</td>
+        </tr>
+        <tr>
+            <td>Steamboat Ski Resort</td>
+            <td>(970) 879-0880</td>
+        </tr>
+        <tr>
+            <td>Wolf Creek Ski Area</td>
+            <td>(970) 264-5639</td>
+        </tr>
+        <tr>
+            <td>Vail Ski Resort</td>
+            <td>(970) 477-1777</td>
+        </tr>
+        <tr>
+            <td>Keystone Resort</td>
+            <td>1 (888) 697-0785</td>
+        </tr>
+        <tr>
+            <td>Eldora Mountain</td>
+            <td>(303) 440-8700</td>
+        </tr>
+        <tr>
+            <td>Breckenridge</td>
+            <td>(970) 453-5000</td>
+        </tr>
+        <tr>
+            <td>Copper Mountain</td>
+            <td>1 (800) 458-8386</td>
+        </tr>
+        <tr>
+            <td>Arapahoe Basin Ski Area</td>
+            <td>(970) 468-0718</td>
+        </tr>
+        <tr>
+            <td>Aspen Highlands Ski Resort</td>
+            <td>(970) 925-1220</td>
+        </tr>
+        <tr>
+            <td>Beaver Creek Resort</td>
+            <td>(970) 754-4636</td>
+        </tr>
+        <tr>
+            <td>Winter Park</td>
+            <td>(970) 726-5514</td>
+        </tr>
+    </table>
+</div>
+</br>
+</br>
+<!-- Looping through all the resorts and building a table to display the information -->
+<%if(resort_info && conditionsInfo && number_resorts){
+<!-- table header -->
+    var table = '<div><table><tr><th>Ski Resort</th><th>Percent Open</th><th>Number runs open</th><th>New Snow</th></tr><tbody>';
+        <!-- loop will get the ski resort percent open and number of runs and new snow then add it to the html -->
+    for(i = 0; i < number_resorts; i++){
+        table += '<tr>';
+        table += '<td>'+resort_info[i].resort_name+'</td>'
+        table += '<td>'+resort_info[i].percent_open *100+'</td>'
+        table += '<td>'+resort_info[i].number_runs_open+'</td>'
+        table += '<td>'+conditionsInfo[i].new_snow+'</td>'
+        table += '</tr>';
+    }
+    <!-- table ending -->
+    table += '</tbody></table></div>';%>
+    <!-- display table html-->
+    <%- table %>
+<%}%>
+</br>
+</br>
+<!-- The following will loop through all the resorts and display the resort with the largest base depth-->
+<h4 class = "center">Resort with largest base depth (in):</h4>
+<%if(conditionsInfo && number_resorts){
+	<!-- variables used to determine the max depth and the name -->
+	var base = conditionsInfo[0].base_snow_depth;
+	var name = conditionsInfo[0].resort_name;
+	<!-- output is the returned html -->
+	output = '<h6 class = "center" id = "max_base">';
+	<!-- loops through the resorts to find the max base depth and name -->
+	for(i = 1; i < number_resorts; i++){
+		if(conditionsInfo[i].base_snow_depth > base){
+			base = conditionsInfo[i].base_snow_depth;
+			name = conditionsInfo[i].resort_name;
+		}
+	}
+	output += name;
+	output += ' with ' + base + ' inches';
+	%>
+	<!-- outputs the output -->
+	<%- output %>
+<%}%>
+</br>
+</br>
+<!-- will display the resorts that have the greatest percentage open -->
+<h4 class = "center">Resort(s) with the most open:</h4>
+<%if(resort_info && number_resorts){
+	var open = resort_info[0].percent_open;
+	output = '<h5 class = "center">';
+	<!-- finds the max percentage open -->
+	for(i = 1; i < number_resorts; i++){
+		if(resort_info[i].percent_open > open){
+			open = resort_info[i].percent_open;
+		}
+	}
+	output += open * 100 + '% open</h5><h6 class = "center">'
+	<!-- will gather all the resorts who have the most open -->
+	for(i = 1; i < number_resorts; i++){
+		if(resort_info[i].percent_open == open){
+			output += resort_info[i].resort_name + '</h6><h6 class = "center">';
+		}
+	}
+	output += '</h6>';
+	%>
+<%- output %>
+<%}%>
+<form action="/map" method="post" id="update_new_snow">
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label"  for="skiResort">Select a Ski Resort to update</label>
+		<div class="col-sm-10">
+			<select class="form-control" name="skiResort"  id="skiResort">
+				<option value="PowderHorn Mountain Resort">PowderHorn Mountain Resort</option>
+				<option value="Silverton Mountain Ski_Area">Silverton Mountain Ski Area</option>
+				<option value="Steamboat Ski Resort">Steamboat Ski Resort</option>
+				<option value="Wolf Creek Ski Area">Wolf Creek Ski Area</option>
+				<option value="Vail Ski Resort">Vail Ski Resort</option>
+				<option value="Keystone Resort">Keystone Resort</option>
+				<option value="Eldora Mountain">Eldora Mountain</option>
+				<option value="Breckenridge">Breckenridge</option>
+				<option value="Copper Mountain">Copper Mountain</option>
+				<option value="Arapahoe Basin Ski Area">Arapahoe Basin Ski Area</option>
+				<option value="Aspen Highlands Ski Resort">Aspen Highlands Ski Resort</option>
+				<option value="Beaver Creek Resort">Beaver Creek Resort</option>
+				<option value="Winter Park Resort">Winter Park Resort</option>
+			</select>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label"  for="newSnowFall">Enter the amount of new snow</label>
+		<div class="col-sm-10">
+			<input type="text" class="form-control" name="newSnowFall" id="newSnowFall" placeholder="Enter New Snow amount">
+		</div>
+	</div>
+	<input type="submit" value="submit" class="btn btn-primary btn-block">
+</form>
+</br>
+</br>
+</br>
+<%- include('../partials/footer') %>

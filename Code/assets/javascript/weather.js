@@ -70,8 +70,7 @@ function updateCards(condObj) {
     weather code and conditions, create a card, show the location on the map,
     then call the light change API */
 function getWeather(resortLat, resortLon) {
-    let weatherCode, units,
-        apiKey = WEATHER_KEY;
+    let units, apiKey = WEATHER_KEY;
 
     units = 'imperial';
 
