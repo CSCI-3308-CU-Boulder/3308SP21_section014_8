@@ -1,0 +1,33 @@
+h1 {
+    text-align: center;
+}
+.card-title{
+    text-align: center;
+}
+table:not(#snowTable), th, td{
+    border: 2px solid blue;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: nowrap;
+}
+.footer {
+    position: static;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: black;
+    text-align: center;
+}
+.col-form-label {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 300px;
+}
+.card {
+    border: none;
+}
+
+.center{
+    text-align: center;
+}
