@@ -12,6 +12,7 @@ Our project is a ski website
 ## Project Architecture
 
 - Frontend - HTML
+- Server - Node.js
 - Backend - SQL
 
 ## Description
