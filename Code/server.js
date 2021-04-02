@@ -252,7 +252,7 @@ app.get('/stats', function(req, res) {
             res.render('pages/stats',{
 				my_title: "Stat Tracker",
 				data: rows
-			})
+			});
 
         })
         .catch(function (err) {
@@ -260,8 +260,8 @@ app.get('/stats', function(req, res) {
             res.render('pages/stats', {
                 my_title: 'Stat Tracker',
                 data: ''
-            })
-        })
+            });
+        });
 });
 
 
