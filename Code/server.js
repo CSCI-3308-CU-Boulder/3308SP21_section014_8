@@ -102,21 +102,6 @@ app.get('/logout', function(req,res) {
   res.redirect('/');
 });
 
-
-// home page
-/*
-
-**** Unnecessary because / is always being called from above get ****
-***************** sendStatus not working either? ********************
-
-app.get('/home', function(req, res) {
-	res.render('pages/home',{
-		my_title:"Ski Bumz Home"
-	});
-  res.sendStatus(200);
-});
-*/
-
 // map page
 app.get('/map', function(req, res) {
   //getting resorts
