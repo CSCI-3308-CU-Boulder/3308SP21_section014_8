@@ -86,11 +86,11 @@ app.use(express.static(__dirname + '/'));//This line is necessary for us to use 
   			Next it will pass this result to the player_info view (pages/player_info), which will use the ids & names to populate the select tag for a form
 ************************************/
 // global variable for user identification
-var user = '';
+app.locals.name = '';
 
 //load the home page by default
 app.get('/', function(req, res) {
-  console.log(user);
+  console.log(app.locals.user);
   res.render('pages/home',{
     my_title:"Ski Bumz Home"
   });
@@ -244,7 +244,8 @@ app.get('/login/login', function(req, res) {
   if(usr && pw) {
     db.one(query)
       .then(function(data) {
-        user = data.user_name;
+        app.locals.name = data.name;
+        app.locals.user = data.user_name;
         res.render('pages/login', {
           my_title: "Login",
           valid: true
@@ -265,6 +266,7 @@ app.get('/login/login', function(req, res) {
         valid: false
     });
   }
+
 });
 
 
