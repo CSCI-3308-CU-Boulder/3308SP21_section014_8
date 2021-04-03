@@ -87,13 +87,19 @@ app.use(express.static(__dirname + '/'));//This line is necessary for us to use 
 ************************************/
 // global variable for user identification
 app.locals.name = '';
+app.locals.user = '';
 
 //load the home page by default
 app.get('/', function(req, res) {
-  console.log(app.locals.user);
   res.render('pages/home',{
     my_title:"Ski Bumz Home"
   });
+});
+
+app.get('/logout', function(req,res) {
+  app.locals.name = '';
+  app.locals.user = '';
+  res.redirect('/');
 });
 
 
