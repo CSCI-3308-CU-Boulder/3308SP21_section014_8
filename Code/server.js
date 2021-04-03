@@ -8,6 +8,7 @@
 var express = require('express'); //Ensure our express framework has been added
 var app = express();
 var bodyParser = require('body-parser'); //Ensure our body-parser tool has been added
+const { Pool } = require('pg');
 app.use(bodyParser.json());              // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
@@ -84,22 +85,31 @@ app.use(express.static(__dirname + '/'));//This line is necessary for us to use 
   			This route will handle a single query to the football_players table which will retrieve the id & name for all of the football players.
   			Next it will pass this result to the player_info view (pages/player_info), which will use the ids & names to populate the select tag for a form
 ************************************/
+// global variable for user identification
+var user = '';
+
 //load the home page by default
 app.get('/', function(req, res) {
+  console.log(user);
   res.render('pages/home',{
     my_title:"Ski Bumz Home"
   });
-  res.sendStatus(200);
 });
 
 
 // home page
+/*
+
+**** Unnecessary because / is always being called from above get ****
+***************** sendStatus not working either? ********************
+
 app.get('/home', function(req, res) {
 	res.render('pages/home',{
 		my_title:"Ski Bumz Home"
 	});
   res.sendStatus(200);
 });
+*/
 
 // map page
 app.get('/map', function(req, res) {
@@ -221,28 +231,41 @@ app.get('/register', function(req, res) {
 // login page
 app.get('/login', function(req, res) {
 	res.render('pages/login',{
-		my_title:"Login"
+		my_title:"Login",
+    valid: true
 	});
 });
 
-//app.get('/stats/add', function(req, res) {
-//    var resort_names = req.body.field_resort_name;
-//    var resort_days = req.body.field_resort_days;
-//    var runs_beginner = req.body.field_runs_beginner;
-//    var runs_intermediate = req.body.field_runs_intermediate;
-//    var runs_advancedPlus = req.body.field_runs_advancedPlus;
-////    var runs = runs_beginner + runs_intermediate + runs_advancedPlus;
-//	var insert_statement = "INSERT INTO resorts (resort_id,resort_name, number_runs_open, number_runs_groomed, percent_open, number_green, number_blue, number_black, number_lifts, acreage, address, phone_number) VALUES(1,'PowderHorn Mountain Resort',50,15,1,8,15,27,5,1600,'48338 Powderhorn Rd, Mesa, CO 81643','9702685700');";
-//
-//
-//// VALUES('" + name + "', '" + year + "', '" + major + "', " + passing_yards + ", " + rushing_yards + ", " + receiving_yards + ", '../resources/img/player1.jpg');";
-//
-//
-//
-//	res.render('pages/stats',{
-//		my_title:"Stat Tracker"
-//	});
-//});
+// login form
+app.get('/login/login', function(req, res) {
+  var usr = req.query.username;
+  var pw = req.query.password;
+  var query = `select * from users where user_name = '${usr}' and password = '${pw}'`;
+  if(usr && pw) {
+    db.one(query)
+      .then(function(data) {
+        user = data.user_name;
+        res.render('pages/login', {
+          my_title: "Login",
+          valid: true
+        });
+      })
+      .catch(function(err) {
+        console.log('error',err);
+        res.render('pages/login', {
+          my_title: "Login",
+          valid: false
+        });
+      });
+    }
+    else {
+      console.log('no user and/or password');
+      res.render('pages/login', {
+        my_title: "Login",
+        valid: false
+    });
+  }
+});
 
 
 app.get('/stats', function(req, res) {

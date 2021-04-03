@@ -1,10 +1,10 @@
 <%- include('../partials/header') %>
 <%- include('../partials/nav') %>
 
-<div class="card-group w-auto ml-5 mr-5">
+<div class="card-group w-auto ml-5 mr-5 mb-5">
 <div class="card">
-<div class="card-body ml-auto">
-<form action="#">
+<div class="card-body mb-3">
+<form action="/login/register">
   <div class="form-group row">
     <label class="col col-form-label" for="fullName">Full Name</label>
     <div class="col">
@@ -63,43 +63,43 @@
       <legend class="col-form-label col pt-0 w-auto">When do you like to hit the slopes?</legend>
       <div class="col">
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="snowday" value="">
+        <input class="form-check-input" type="checkbox" id="snowday" value=1>
         <label class="form-check-label" for="snowday">
         Sunday
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="snowday" value="">
+        <input class="form-check-input" type="checkbox" id="snowday" value=2>
         <label class="form-check-label" for="snowday">
         Monday
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="snowday" value="">
+        <input class="form-check-input" type="checkbox" id="snowday" value=3>
         <label class="form-check-label" for="snowday">
         Tuesday
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="snowday" value="">
+        <input class="form-check-input" type="checkbox" id="snowday" value=4>
         <label class="form-check-label" for="snowday">
         Wednesday
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="snowday" value="">
+        <input class="form-check-input" type="checkbox" id="snowday" value=5>
         <label class="form-check-label" for="snowday">
         Thursday
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="snowday" value="">
+        <input class="form-check-input" type="checkbox" id="snowday" value=6>
         <label class="form-check-label" for="snowday">
         Friday
         </label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="snowday" value="">
+        <input class="form-check-input" type="checkbox" id="snowday" value=7>
         <label class="form-check-label" for="snowday">
         Saturday
         </label>
@@ -107,13 +107,16 @@
       </div>
     </div>
     </fieldset>
-  
+    </form>
+  </div>
+  <div>
+    <input type="submit" value="Submit" class="btn btn-dark btn-block w-75 mx-auto">
+  </div>
 </form>
 </div>
-</div>
 <div class="card">
-  <div class="card-body mr-auto">
-  <form action="#">
+  <div class="card-body">
+  <form action="/login/login" method="get">
     <div class="form-group row">
       <label class="col col-form-label" for="username">Username</label>
       <div class="col">
@@ -121,20 +124,19 @@
       </div>
     </div>
     <div class="form-group row">
-      <label  class="col col-form-label " for="passwordFirst">Password</label>
+      <label  class="col col-form-label " for="login">Password</label>
       <div class="col">
-        <input type="password" class="form-control mx-n3" id="passwordFirst" name="passwordFirst" placeholder="Password">
+        <input type="password" class="form-control mx-n3" id="password" name="password" placeholder="Password">
       </div>
     </div>
-    
-  </form>
+    <% if(!valid) { %> <p class="text-danger text-center">Invalid username or password.</h4> <% } %> 
+    </div>
+      <div>
+        <input type="submit" value="Submit" class="btn btn-dark btn-block w-75 mx-auto">
+      </div>
+    </form>
+  </div>
   </div>
 </div>
 </div>
-<table style="border: none">
-<row>
-  <td style="border: none"><input type="submit" value="submit" class="btn btn-dark btn-block w-100 mx-n2"></td>
-  <td style="border: none"><input type="submit" value="submit" class="btn btn-dark btn-block w-100 mx-2"></td>
-</row>
-</table>
 <%- include('../partials/footer') %>
