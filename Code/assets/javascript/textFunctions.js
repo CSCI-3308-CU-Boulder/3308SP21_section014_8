@@ -28,6 +28,7 @@ function addResorts(resortObj, classToAdd, idToAddTo) {
         newListItem.addClass(classToAdd);
 
         $('#' + idToAddTo).append(newListItem);
+        console.log($('#' + idToAddTo).append(newListItem));
     })
 }
 
