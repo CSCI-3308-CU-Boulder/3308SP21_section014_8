@@ -17,3 +17,8 @@ Our project is a ski website that will display resorts in Colorado, keep track o
 
 ## Description
 Our website will allow users to easily plan their ski/snowboard trip in Colorado, by giving them access to maps, traffic, and weather. The website will also allow users to track their stats throughout the season. 
+
+## Dependencies  
+If docker compose is not working run
+docker-compose run web npm install
+
