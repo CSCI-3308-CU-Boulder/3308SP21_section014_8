@@ -227,12 +227,7 @@ app.get('/login/login', function(req, res) {
       .then(function(data) {
         app.locals.name = data.name;
         app.locals.user = data.user_name;
-        res.render('pages/login', {
-          my_title: "Login",
-          valid: true,
-          userExists: false,
-          validPass: true
-        });
+        res.redirect('/');
       })
       .catch(function(err) {
         console.log('error',err);
