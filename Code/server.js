@@ -266,7 +266,7 @@ app.post('/login/register',function(req,res) {
 
   var query = `select * from users where user_name = '${usr}';`;
   var insert = `INSERT INTO users (user_name,password,email,name,visitor_type,days) VALUES(
-    '${usr}','${psw}','${email}','${name}','ARRAY [${acts}]','ARRAY [${days}]');`;
+    '${usr}','${psw}','${email}','${name}',ARRAY [${acts}],ARRAY [${days}]);`;
   db.none(query)
     .then(function (data) {
       if(psw == cpsw) {
