@@ -222,7 +222,7 @@ app.get('/login/login', function(req, res) {
   var usr = req.query.username;
   var psw = req.query.password;
   var query = `select * from users where user_name = '${usr}' and password = '${psw}';`;
-  console.log(query);
+  //console.log(query);
   if(usr && psw) {
     db.one(query)
       .then(function(data) {
@@ -261,18 +261,23 @@ app.post('/login/register',function(req,res) {
   var cpsw = req.body.cpsw;
   var acts = req.body.visitor_type;
   var days = req.body.resort_days;
-  console.log(name);
-  console.log(usr);
-
+  // console.log(name);
+  // console.log(usr);
+  // console.log(acts);
+  // console.log(days);
   var query = `select * from users where user_name = '${usr}';`;
   var insert = `INSERT INTO users (user_name,password,email,name,visitor_type,days) VALUES(
     '${usr}','${psw}','${email}','${name}',ARRAY [${acts}],ARRAY [${days}]);`;
+    console.log(insert);
   db.none(query)
     .then(function (data) {
       if(psw == cpsw) {
         app.locals.name = name;
         app.locals.user = usr;
         db.query(insert);
+        if(usr == "tester"){
+        	db.query("delete from users where user_name = 'tester';")
+        }
         res.redirect('/');
       }
       else {
