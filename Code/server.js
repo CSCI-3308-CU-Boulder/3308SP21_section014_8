@@ -220,9 +220,10 @@ app.get('/login', function(req, res) {
 // login form
 app.get('/login/login', function(req, res) {
   var usr = req.query.username;
-  var pw = req.query.psw;
-  var query = `select * from users where user_name = '${usr}' and password = '${pw}'`;
-  if(usr && pw) {
+  var psw = req.query.password;
+  var query = `select * from users where user_name = '${usr}' and password = '${psw}';`;
+  console.log(query);
+  if(usr && psw) {
     db.one(query)
       .then(function(data) {
         app.locals.name = data.name;
@@ -246,7 +247,8 @@ app.get('/login/login', function(req, res) {
         my_title: "Login",
         passMatch: true,
         valid: false,
-        userExists: false
+        userExists: false,
+        validPass: true
     });
   }
 });
