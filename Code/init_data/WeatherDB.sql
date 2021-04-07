@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS users(
 );
 
 INSERT INTO users (user_name,password,email,name,visitor_type,days) VALUES 
-('ralphie1','buffs1','ralphie@colorado.edu','Ralphie Buffalo',ARRAY [1,2], ARRAY [2,5,7]);
+('ralphie1','buffs1','ralphie@colorado.edu','Ralphie Buffalo',ARRAY [1,2],ARRAY [2,5,7]);
 
 DROP TABLE IF EXISTS stats CASCADE;
 CREATE TABLE IF NOT EXISTS stats(
