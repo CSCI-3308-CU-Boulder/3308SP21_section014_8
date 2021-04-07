@@ -46,9 +46,12 @@ CREATE TABLE IF NOT EXISTS users(
 	password VARCHAR(30) NOT NULL,
 	email VARCHAR(50) NOT NULL,
 	name VARCHAR(30) NOT NULL,
-	visitor_type INTEGER[],
-	days INTEGER[]
+	visitor_type INTEGER[] NOT NULL,
+	days INTEGER[] NOT NULL
 );
+
+INSERT INTO users (user_name,password,email,name,visitor_type,days) VALUES 
+('ralphie1','buffs1','ralphie@colorado.edu','Ralphie Buffalo',ARRAY [1,2], ARRAY [2,5,7]);
 
 DROP TABLE IF EXISTS stats CASCADE;
 CREATE TABLE IF NOT EXISTS stats(
