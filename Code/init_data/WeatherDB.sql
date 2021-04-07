@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS users(
 	password VARCHAR(30) NOT NULL,
 	email VARCHAR(50) NOT NULL,
 	name VARCHAR(30) NOT NULL,
-	skier_type INTEGER[],
+	visitor_type INTEGER[],
 	days INTEGER[]
 );
 

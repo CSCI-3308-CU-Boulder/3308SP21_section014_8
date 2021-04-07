@@ -8,6 +8,7 @@
 var express = require('express'); //Ensure our express framework has been added
 var app = express();
 var bodyParser = require('body-parser'); //Ensure our body-parser tool has been added
+const { Pool } = require('pg');
 app.use(bodyParser.json());              // support json encoded bodies
 app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
@@ -84,21 +85,21 @@ app.use(express.static(__dirname + '/'));//This line is necessary for us to use 
   			This route will handle a single query to the football_players table which will retrieve the id & name for all of the football players.
   			Next it will pass this result to the player_info view (pages/player_info), which will use the ids & names to populate the select tag for a form
 ************************************/
+// global variable for user identification
+app.locals.name = '';
+app.locals.user = '';
+
 //load the home page by default
 app.get('/', function(req, res) {
   res.render('pages/home',{
     my_title:"Ski Bumz Home"
   });
-  res.sendStatus(200);
 });
 
-
-// home page
-app.get('/home', function(req, res) {
-	res.render('pages/home',{
-		my_title:"Ski Bumz Home"
-	});
-  res.sendStatus(200);
+app.get('/logout', function(req,res) {
+  app.locals.name = '';
+  app.locals.user = '';
+  res.redirect('/');
 });
 
 // map page
@@ -208,30 +209,6 @@ app.get('/backcountryTest', function(req, res) {
 app.get('/login', function(req, res) {
   
 	res.render('pages/login',{
-<<<<<<< Updated upstream
-		my_title:"Login"
-	});
-});
-
-//app.get('/stats/add', function(req, res) {
-//    var resort_names = req.body.field_resort_name;
-//    var resort_days = req.body.field_resort_days;
-//    var runs_beginner = req.body.field_runs_beginner;
-//    var runs_intermediate = req.body.field_runs_intermediate;
-//    var runs_advancedPlus = req.body.field_runs_advancedPlus;
-////    var runs = runs_beginner + runs_intermediate + runs_advancedPlus;
-//	var insert_statement = "INSERT INTO resorts (resort_id,resort_name, number_runs_open, number_runs_groomed, percent_open, number_green, number_blue, number_black, number_lifts, acreage, address, phone_number) VALUES(1,'PowderHorn Mountain Resort',50,15,1,8,15,27,5,1600,'48338 Powderhorn Rd, Mesa, CO 81643','9702685700');";
-//
-//
-//// VALUES('" + name + "', '" + year + "', '" + major + "', " + passing_yards + ", " + rushing_yards + ", " + receiving_yards + ", '../resources/img/player1.jpg');";
-//
-//
-//
-//	res.render('pages/stats',{
-//		my_title:"Stat Tracker"
-//	});
-//});
-=======
 		my_title:"Login",
     valid: true,
     validPass: false,
@@ -287,13 +264,14 @@ app.post('/login/register',function(req,res) {
   var cpsw = req.body.cpsw;
   var acts = req.body.visitor_type;
   var days = req.body.resort_days;
+  console.log(name);
+  console.log(usr);
 
   var query = `select * from users where user_name = '${usr}';`;
-  var insert = `INSERT INTO users (user_name,password,email,name,skier_type,skier_or_snowboarder) VALUES(
-    '${usr}','${psw}','${email}','${name}','${acts}','${days}');`;
+  var insert = `INSERT INTO users (user_name,password,email,name,visitor_type,days) VALUES(
+    '${usr}','${psw}','${email}','${name}','{${acts}}','{${days}}');`;
   db.none(query)
     .then(function (data) {
-      console.log(data);
       if(psw == cpsw) {
         app.locals.name = name;
         app.locals.user = usr;
@@ -320,7 +298,6 @@ app.post('/login/register',function(req,res) {
       });
     });
 });
->>>>>>> Stashed changes
 
 
 app.get('/stats', function(req, res) {

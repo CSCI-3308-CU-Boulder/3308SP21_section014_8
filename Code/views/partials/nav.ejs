@@ -14,10 +14,22 @@
               <a class="nav-link" href="/stats">Stat Tracker</a>
           </li>
       </ul>
+      <% if(!user) { %>
       <ul class="navbar-nav justify-content-end ml-auto">
           <li class="nav-item">
               <a class="nav-link <% if(my_title == "Login"){ %> <%- 'active' %> <% } %>" href="/login">Login/Register</a>
           </li>
       </ul>
+      <% }
+        else { %>
+        <ul class="navbar-nav justify-content-end ml-auto">
+            <li class="nav-item nav-link active">
+                <%- user %>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" href="/logout" method="get">Logout</a>
+            </li>
+        </ul>
+        <% } %>
   </div>
 </nav>
