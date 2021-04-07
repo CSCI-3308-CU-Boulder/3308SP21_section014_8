@@ -191,13 +191,6 @@ app.get('/resorts', function(req, res) {
 	});
 });
 
-//// stat tracker page
-//app.get('/stats', function(req, res) {
-//	res.render('pages/stats',{
-//		my_title:"Stat Tracker"
-//	});
-//});
-
 // backcountry conditions page
 app.get('/backcountry', function(req, res) {
 	res.render('pages/backcountry',{
@@ -212,18 +205,15 @@ app.get('/backcountryTest', function(req, res) {
     });
 });
 
-// signup page
-app.get('/register', function(req, res) {
-	res.render('pages/register',{
-		my_title:"Account Registration"
-	});
-});
-
 // login page
 app.get('/login', function(req, res) {
+  
 	res.render('pages/login',{
 		my_title:"Login",
-    valid: true
+    valid: true,
+    validPass: false,
+    userExists: false,
+    passMatch: true
 	});
 });
 
@@ -237,16 +227,16 @@ app.get('/login/login', function(req, res) {
       .then(function(data) {
         app.locals.name = data.name;
         app.locals.user = data.user_name;
-        res.render('pages/login', {
-          my_title: "Login",
-          valid: true
-        });
+        res.redirect('/');
       })
       .catch(function(err) {
         console.log('error',err);
         res.render('pages/login', {
           my_title: "Login",
-          valid: false
+          valid: false,
+          passMatch: true,
+          userExists: false,
+          validPass: true
         });
       });
     }
@@ -254,10 +244,54 @@ app.get('/login/login', function(req, res) {
       console.log('no user and/or password');
       res.render('pages/login', {
         my_title: "Login",
-        valid: false
+        passMatch: true,
+        valid: false,
+        userExists: false
     });
   }
+});
 
+app.post('/login/register',function(req,res) {
+  var name = req.body.firstName + ' ' + req.body.lastName;
+  var email = req.body.email;
+  var usr = req.body.username;
+  var psw = req.body.psw;
+  var cpsw = req.body.cpsw;
+  var acts = req.body.visitor_type;
+  var days = req.body.resort_days;
+  console.log(name);
+  console.log(usr);
+
+  var query = `select * from users where user_name = '${usr}';`;
+  var insert = `INSERT INTO users (user_name,password,email,name,visitor_type,days) VALUES(
+    '${usr}','${psw}','${email}','${name}','{${acts}}','{${days}}');`;
+  db.none(query)
+    .then(function (data) {
+      if(psw == cpsw) {
+        app.locals.name = name;
+        app.locals.user = usr;
+        db.query(insert);
+        res.redirect('/');
+      }
+      else {
+        console.log(data);
+        res.render('pages/login', {
+          my_title: "Login",
+          valid: true,
+          passMatch: false,
+          userExists: true
+        });
+      }
+    })
+    .catch(function (err) {
+      console.log('error', err);
+      res.render('pages/login', {
+        my_title: "Login",
+        valid: true,
+        passMatch: true,
+        userExists: true
+      });
+    });
 });
 
 
