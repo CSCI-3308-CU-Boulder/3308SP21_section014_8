@@ -190,13 +190,6 @@ app.get('/resorts', function(req, res) {
 	});
 });
 
-//// stat tracker page
-//app.get('/stats', function(req, res) {
-//	res.render('pages/stats',{
-//		my_title:"Stat Tracker"
-//	});
-//});
-
 // backcountry conditions page
 app.get('/backcountry', function(req, res) {
 	res.render('pages/backcountry',{
@@ -211,16 +204,11 @@ app.get('/backcountryTest', function(req, res) {
     });
 });
 
-// signup page
-app.get('/register', function(req, res) {
-	res.render('pages/register',{
-		my_title:"Account Registration"
-	});
-});
-
 // login page
 app.get('/login', function(req, res) {
+  
 	res.render('pages/login',{
+<<<<<<< Updated upstream
 		my_title:"Login"
 	});
 });
@@ -243,6 +231,96 @@ app.get('/login', function(req, res) {
 //		my_title:"Stat Tracker"
 //	});
 //});
+=======
+		my_title:"Login",
+    valid: true,
+    validPass: false,
+    userExists: false,
+    passMatch: true
+	});
+});
+
+// login form
+app.get('/login/login', function(req, res) {
+  var usr = req.query.username;
+  var pw = req.query.password;
+  var query = `select * from users where user_name = '${usr}' and password = '${pw}'`;
+  if(usr && pw) {
+    db.one(query)
+      .then(function(data) {
+        app.locals.name = data.name;
+        app.locals.user = data.user_name;
+        res.render('pages/login', {
+          my_title: "Login",
+          valid: true,
+          userExists: false,
+          validPass: true
+        });
+      })
+      .catch(function(err) {
+        console.log('error',err);
+        res.render('pages/login', {
+          my_title: "Login",
+          valid: false,
+          passMatch: true,
+          userExists: false,
+          validPass: true
+        });
+      });
+    }
+    else {
+      console.log('no user and/or password');
+      res.render('pages/login', {
+        my_title: "Login",
+        passMatch: true,
+        valid: false,
+        userExists: false
+    });
+  }
+});
+
+app.post('/login/register',function(req,res) {
+  var name = req.body.firstName + ' ' + req.body.lastName;
+  var email = req.body.email;
+  var usr = req.body.username;
+  var psw = req.body.psw;
+  var cpsw = req.body.cpsw;
+  var acts = req.body.visitor_type;
+  var days = req.body.resort_days;
+
+  var query = `select * from users where user_name = '${usr}';`;
+  var insert = `INSERT INTO users (user_name,password,email,name,skier_type,skier_or_snowboarder) VALUES(
+    '${usr}','${psw}','${email}','${name}','${acts}','${days}');`;
+  db.none(query)
+    .then(function (data) {
+      console.log(data);
+      if(psw == cpsw) {
+        app.locals.name = name;
+        app.locals.user = usr;
+        db.query(insert);
+        res.redirect('/');
+      }
+      else {
+        console.log(data);
+        res.render('pages/login', {
+          my_title: "Login",
+          valid: true,
+          passMatch: false,
+          userExists: true
+        });
+      }
+    })
+    .catch(function (err) {
+      console.log('error', err);
+      res.render('pages/login', {
+        my_title: "Login",
+        valid: true,
+        passMatch: true,
+        userExists: true
+      });
+    });
+});
+>>>>>>> Stashed changes
 
 
 app.get('/stats', function(req, res) {

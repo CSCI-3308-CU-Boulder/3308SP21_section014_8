@@ -46,8 +46,8 @@ CREATE TABLE IF NOT EXISTS users(
 	password VARCHAR(30) NOT NULL,
 	email VARCHAR(50) NOT NULL,
 	name VARCHAR(30) NOT NULL,
-	skier_type VARCHAR(30),
-	skier_or_snowboarder VARCHAR(30)
+	skier_type INTEGER[],
+	days INTEGER[]
 );
 
 DROP TABLE IF EXISTS stats CASCADE;
@@ -59,12 +59,6 @@ CREATE TABLE IF NOT EXISTS stats(
 	days INTEGER,
 	user_name VARCHAR(30) PRIMARY KEY
 );
-
-INSERT INTO users (user_name,password,email,name,skier_type,skier_or_snowboarder) VALUES
-('ccaulk','123abc','caleb.caulk@colorado.edu','Caleb Caulk','expert','snowboarder'),
-('bblack','123abc','bill.black@colorado.edu','Bill Black','intermediate','snowboarder'),
-('nrieck','xyz123','neo.rieck@colorado.edu','Neo Rieck','beginner','skier'),
-('dhockstein','123xyz','drew.hockstein@colorado.edu','Drew Hockstein','expert','snowboarder');
 
 INSERT INTO stats (num_runs_done,vertical_feet,num_resorts_visited,resort_ids,days,user_name) VALUES
 (356,400000,8,ARRAY [4,5,6,7,9,10,12,13],44,'ccaulk'),

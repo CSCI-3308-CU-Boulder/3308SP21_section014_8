@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 <%- include('../partials/nav') %>
 
+<<<<<<< Updated upstream
 <div class="card-group w-auto ml-5 mr-5">
 <div class="card">
 <div class="card-body ml-auto">
@@ -114,6 +115,11 @@
 <div class="card">
   <div class="card-body mr-auto">
   <form action="#">
+=======
+<div class="card w-50 mx-auto">
+  <div class="card-body">
+  <form action="/login/login" method="get">
+>>>>>>> Stashed changes
     <div class="form-group row">
       <label class="col col-form-label" for="username">Username</label>
       <div class="col">
@@ -126,15 +132,152 @@
         <input type="password" class="form-control mx-n3" id="passwordFirst" name="passwordFirst" placeholder="Password">
       </div>
     </div>
+<<<<<<< Updated upstream
     
   </form>
+=======
+    <% if(!valid) { %> <p class="text-danger text-center">Invalid username or password.</h4> <% } %> 
+    <div>
+      <input type="submit" value="Submit" class="btn btn-dark btn-block w-50 mx-auto">
+    </div>
+  </form>
+    <button type="button" class="btn btn-dark btn-block w-50 mx-auto mt-2" data-toggle="modal" data-target="#register-modal">
+      Register New Account
+    </button>
+    <div>
+      <% if(userExists) { %> <p class="text-danger text-center">User already exists</p> <% } %>
+      <% if(!passMatch) { %> <p class="text-danger text-center">Invalid password</p> <% } %>
+    </div>
+>>>>>>> Stashed changes
   </div>
 </div>
+
+<!-- Modal HTML -->
+<div id="register-modal" class="modal fade">
+  <form action="/login/register" method="post">
+  <div class="modal-dialog modal-login">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Register New Account</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <input type="text" class="form-control" name="firstName" placeholder="First Name"
+            required="required">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="lastName" placeholder="Last Name"
+            required="required">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="username" placeholder="Username"
+            required="required">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="email" placeholder="Email Address"
+            required="required">
+        </div>
+        <div class="form-group">
+          <div class="ml-2">Password must be less than 16 characters</div>
+          <input id="psw" maxlength="16" type="password" class="form-control" name="password" placeholder="Password"
+            required="required">
+        </div>
+        <div class="form-group">
+          <input id="cpsw" maxlength="16" type="password" class="form-control" name="confirm password"
+            placeholder="Confirm Password" required="required">
+        </div>
+        <div class="form-group" name="visitor_type">
+            <label for="visitor_type">What's on your feet?</label>
+            <div class="col">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="dh-ski" name="visitor_type[]" value="1">
+              <label class="form-check-label" for="dh-ski">
+              Downhill Skis
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="cc-ski" name="visitor_type[]" value="2">
+              <label class="form-check-label" for="cc-ski">
+              Cross Country Skis/Nordic
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="fs-board" name="visitor_type[]" value="3">
+              <label class="form-check-label" for="fs-board">
+              Freestyle Snowboard
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="fr-board" name="visitor_type[]" value="4">
+              <label class="form-check-label" for="fr-board">
+              Freeride Snowboard
+              </label>
+            </div>
+            </div>
+          </div>
+          <div class="form-group" name="resort_days">
+            <label for="resort_days">When do you hit the slopes?</label>
+            <div class="col">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="snowday1" name="resort_days[]" value="1">
+              <label class="form-check-label" for="snowday1">
+              Sunday
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="snowday2" name="resort_days[]" value="2">
+              <label class="form-check-label" for="snowday2">
+              Monday
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="snowday3" name="resort_days[]" value="3">
+              <label class="form-check-label" for="snowday3">
+              Tuesday
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="snowday4" name="resort_days[]" value="4">
+              <label class="form-check-label" for="snowday4">
+              Wednesday
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="snowday5" name="resort_days[]" value="5">
+              <label class="form-check-label" for="snowday5">
+              Thursday
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="snowday6" name="resort_days[]" value="6">
+              <label class="form-check-label" for="snowday6">
+              Friday
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="snowday7" name="resort_days[]" value="7">
+              <label class="form-check-label" for="snowday7">
+              Saturday
+              </label>
+            </div>
+            </div>
+          </div>
+        </div>
+        <input type="submit" value="Sign Up" id="register-submit" class="btn btn-dark btn-block w-50 mx-auto mt-2 mb-3">
+      </div>
+    </div>
+  </div>
+  </form>
 </div>
+<<<<<<< Updated upstream
 <table style="border: none">
 <row>
   <td style="border: none"><input type="submit" value="submit" class="btn btn-dark btn-block w-100 mx-n2"></td>
   <td style="border: none"><input type="submit" value="submit" class="btn btn-dark btn-block w-100 mx-2"></td>
 </row>
 </table>
+=======
+
+>>>>>>> Stashed changes
 <%- include('../partials/footer') %>
