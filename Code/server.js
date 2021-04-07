@@ -220,7 +220,7 @@ app.get('/login', function(req, res) {
 // login form
 app.get('/login/login', function(req, res) {
   var usr = req.query.username;
-  var pw = req.query.password;
+  var pw = req.query.psw;
   var query = `select * from users where user_name = '${usr}' and password = '${pw}'`;
   if(usr && pw) {
     db.one(query)
