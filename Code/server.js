@@ -91,7 +91,7 @@ app.locals.user = '';
 
 //load the home page by default
 app.get('/', function(req, res) {
-  res.render('pages/home',{
+  res.status(200).render('pages/home',{
     my_title:"Ski Bumz Home"
   });
 });
@@ -99,7 +99,7 @@ app.get('/', function(req, res) {
 app.get('/logout', function(req,res) {
   app.locals.name = '';
   app.locals.user = '';
-  res.redirect('/');
+  res.status(200).redirect('/');
 });
 
 // map page
@@ -122,7 +122,7 @@ app.get('/map', function(req, res) {
     .then(function (data) {
     //   console.log(data);
     //   console.log(data[2][0].count);
-      res.render('pages/map',{
+      res.status(200).render('pages/map',{
         my_title: "Resorts Map",
         resort_info: data[0],
         conditionsInfo: data[1],
@@ -131,7 +131,7 @@ app.get('/map', function(req, res) {
     })
     .catch(function (err) {
       console.log('error', err);
-      res.render('pages/map', {
+      res.render('pages/map', { // Status code here
         my_title: "Resorts Map",
         resorts_info: '',
         conditionsInfo: '',
@@ -162,11 +162,7 @@ app.post('/map',function(req,res){
     })
   //returning the data back to the map page
     .then(function (data) {
-      console.log(data);
-      console.log(inches);
-      console.log(area);
-    //   console.log(data[2][0].count);
-      res.render('pages/map',{
+      res.status(200).render('pages/map',{
         my_title: "Resorts Map",
         resort_info: data[1],
         conditionsInfo: data[2],
@@ -175,7 +171,7 @@ app.post('/map',function(req,res){
     })
     .catch(function (err) {
       console.log('error', err);
-      res.render('pages/map', {
+      res.render('pages/map', { // Status code here
         my_title: "Resorts Map",
         resorts_info: '',
         conditionsInfo: '',
@@ -186,21 +182,21 @@ app.post('/map',function(req,res){
 
 // resort conditions page
 app.get('/resorts', function(req, res) {
-	res.render('pages/resorts',{
+	res.status(200).render('pages/resorts',{
 		my_title:"Resort Conditions"
 	});
 });
 
 // backcountry conditions page
 app.get('/backcountry', function(req, res) {
-	res.render('pages/backcountry',{
+	res.status(200).render('pages/backcountry',{
 		my_title:"Backcountry Conditions"
 	});
 });
 
 // test backcountry conditions page
 app.get('/backcountryTest', function(req, res) {
-    res.render('pages/backcountryTest',{
+    res.status(200).render('pages/backcountryTest',{
         my_title:"Backcountry Conditions Test"
     });
 });
@@ -208,9 +204,9 @@ app.get('/backcountryTest', function(req, res) {
 // login page
 app.get('/login', function(req, res) {
   
-	res.render('pages/login',{
+	res.status(200).render('pages/login',{
 		my_title:"Login",
-    valid: true,
+    validUsr: true,
     validPass: false,
     userExists: false,
     passMatch: true
@@ -228,14 +224,14 @@ app.get('/login/login', function(req, res) {
       .then(function(data) {
         app.locals.name = data.name;
         app.locals.user = data.user_name;
-        res.redirect('/');
+        res.status(200).redirect('/');
       })
       .catch(function(err) {
         console.log('error',err);
-        res.render('pages/login', {
+        res.render('pages/login', { // Status code here
           my_title: "Login",
-          valid: false,
           passMatch: true,
+          validUsr: false,
           userExists: false,
           validPass: true
         });
@@ -243,10 +239,10 @@ app.get('/login/login', function(req, res) {
     }
     else {
       console.log('no user and/or password');
-      res.render('pages/login', {
+      res.render('pages/login', { // Status code here
         my_title: "Login",
         passMatch: true,
-        valid: false,
+        validUsr: false,
         userExists: false,
         validPass: true
     });
@@ -261,10 +257,7 @@ app.post('/login/register',function(req,res) {
   var cpsw = req.body.cpsw;
   var acts = req.body.visitor_type;
   var days = req.body.resort_days;
-  // console.log(name);
-  // console.log(usr);
-  // console.log(acts);
-  // console.log(days);
+
   var query = `select * from users where user_name = '${usr}';`;
   var insert = `INSERT INTO users (user_name,password,email,name,visitor_type,days) VALUES(
     '${usr}','${psw}','${email}','${name}',ARRAY [${acts}],ARRAY [${days}]);`;
@@ -276,25 +269,26 @@ app.post('/login/register',function(req,res) {
         app.locals.user = usr;
         db.query(insert);
         if(usr == "tester"){
-        	db.query("delete from users where user_name = 'tester';")
+        	db.query("delete from users where user_name = 'tester';");
         }
-        res.redirect('/');
+        res.status(200).redirect('/');
       }
       else {
         console.log(data);
-        res.render('pages/login', {
+        res.status(200).render('pages/login', { // Is this just a normal case of user being correctly registered? If so, delete 282-287 and uncomment 288
           my_title: "Login",
-          valid: true,
+          validUsr: true,
           passMatch: false,
           userExists: true
         });
+        // res.status(200).redirect('/');
       }
     })
     .catch(function (err) {
       console.log('error', err);
-      res.render('pages/login', {
+      res.render('pages/login', { // Status code here
         my_title: "Login",
-        valid: true,
+        validUsr: true,
         passMatch: true,
         userExists: true
       });
@@ -306,7 +300,7 @@ app.get('/stats', function(req, res) {
     var query = 'select * from stats;';
 	db.any(query)
         .then(function (rows) {
-            res.render('pages/stats',{
+            res.status(200).render('pages/stats',{
 				my_title: "Stat Tracker",
 				data: rows
 			});
@@ -314,7 +308,7 @@ app.get('/stats', function(req, res) {
         })
         .catch(function (err) {
             console.log('error', err);
-            res.render('pages/stats', {
+            res.render('pages/stats', { // Status code here
                 my_title: 'Stat Tracker',
                 data: ''
             });

@@ -40,7 +40,7 @@ describe("Server!", () => {
         	//expecting the page to load and return 200 tells us that
           expect(res).to.have.status(200);
           //expecting the be redirected to the home page where a welcome message is
-          expect(res.text).to.contain('<h3 class="home text-center">Welcome , Ralphie Buffalo!</h3>')
+          expect(res.text).to.contain('<h3 class="home text-center">Welcome , Ralphie Buffalo!</h3>');
           done();
         });
     });
