@@ -275,13 +275,12 @@ app.post('/login/register',function(req,res) {
       }
       else {
         console.log(data);
-        // res.status(200).render('pages/login', {
-        //   my_title: "Login",
-        //   validUsr: true,
-        //   passMatch: false,
-        //   userExists: true
-        // });
-        res.status(200).redirect('/');
+        res.status(200).render('pages/login', {
+          my_title: "Login",
+          validUsr: true,
+          passMatch: false,
+          userExists: true
+        });
       }
     })
     .catch(function (err) {
