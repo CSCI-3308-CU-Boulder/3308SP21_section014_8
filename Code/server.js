@@ -131,7 +131,7 @@ app.get('/map', function(req, res) {
     })
     .catch(function (err) {
       console.log('error', err);
-      res.render('pages/map', { // Status code here
+      res.status(400).render('pages/map', { // Status code here
         my_title: "Resorts Map",
         resorts_info: '',
         conditionsInfo: '',
@@ -228,7 +228,7 @@ app.get('/login/login', function(req, res) {
       })
       .catch(function(err) {
         console.log('error',err);
-        res.render('pages/login', { // Status code here
+        res.status(400).render('pages/login', { // Status code here
           my_title: "Login",
           passMatch: true,
           validUsr: false,
@@ -239,7 +239,7 @@ app.get('/login/login', function(req, res) {
     }
     else {
       console.log('no user and/or password');
-      res.render('pages/login', { // Status code here
+      res.status(400).render('pages/login', { // Status code here
         my_title: "Login",
         passMatch: true,
         validUsr: false,
@@ -286,7 +286,7 @@ app.post('/login/register',function(req,res) {
     })
     .catch(function (err) {
       console.log('error', err);
-      res.render('pages/login', { // Status code here
+      res.status(400).render('pages/login', { // Status code here
         my_title: "Login",
         validUsr: true,
         passMatch: true,
@@ -308,7 +308,7 @@ app.get('/stats', function(req, res) {
         })
         .catch(function (err) {
             console.log('error', err);
-            res.render('pages/stats', { // Status code here
+            res.status(400).render('pages/stats', { // Status code here
                 my_title: 'Stat Tracker',
                 data: ''
             });
