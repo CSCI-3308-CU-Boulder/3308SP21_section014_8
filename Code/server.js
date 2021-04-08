@@ -275,13 +275,13 @@ app.post('/login/register',function(req,res) {
       }
       else {
         console.log(data);
-        res.status(200).render('pages/login', { // Is this just a normal case of user being correctly registered? If so, delete 282-287 and uncomment 288
-          my_title: "Login",
-          validUsr: true,
-          passMatch: false,
-          userExists: true
-        });
-        // res.status(200).redirect('/');
+        // res.status(200).render('pages/login', {
+        //   my_title: "Login",
+        //   validUsr: true,
+        //   passMatch: false,
+        //   userExists: true
+        // });
+        res.status(200).redirect('/');
       }
     })
     .catch(function (err) {
