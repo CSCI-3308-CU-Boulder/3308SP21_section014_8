@@ -56,7 +56,7 @@ describe("Server!", () => {
         .end((err, res) => {
         	//console.log("res" + res);
         	//expecting the page to load and return 200 tells us that
-          expect(res).to.have.status(200);
+          expect(res).to.have.status(400);
           //expecting an error to happen an be thrown
           expect(err);
           done();
@@ -90,7 +90,7 @@ describe("Server!", () => {
         .end((err, res) => {
         	//console.log("res" + res.text);
         //expecting the page to load and return 200 tells us that
-          expect(res).to.have.status(200);
+          expect(res).to.have.status(400);
           //expecting there to be an error message
           expect(err);
           done();
