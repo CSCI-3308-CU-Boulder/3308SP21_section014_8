@@ -146,6 +146,7 @@ app.post('/map',function(req,res){
   var inches = req.body.newSnowFall;
   var area = req.body.skiResort;
   var update = "update conditions set new_snow = '"+inches+"' where resort_name = '"+area+"';";
+  console.log(update);
   //getting resorts
   var resorts_data = "select * from resorts;";
   //geting new snow from conditions

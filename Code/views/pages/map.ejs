@@ -100,10 +100,14 @@
         <!-- loop will get the ski resort percent open and number of runs and new snow then add it to the html -->
     for(i = 0; i < number_resorts; i++){
         table += '<tr>';
-        table += '<td>'+resort_info[i].resort_name+'</td>'
-        table += '<td>'+resort_info[i].percent_open *100+'</td>'
-        table += '<td>'+resort_info[i].number_runs_open+'</td>'
-        table += '<td>'+conditionsInfo[i].new_snow+'</td>'
+        table += '<td>'+resort_info[i].resort_name+'</td>';
+        table += '<td>'+resort_info[i].percent_open *100+'</td>';
+        table += '<td>'+resort_info[i].number_runs_open+'</td>';
+        for(j = 0; j < number_resorts; j++){
+       		if(resort_info[i].resort_id == conditionsInfo[j].resort_id){
+        		table += '<td>'+conditionsInfo[j].new_snow+'</td>';
+       		}
+        }
         table += '</tr>';
     }
     <!-- table ending -->
