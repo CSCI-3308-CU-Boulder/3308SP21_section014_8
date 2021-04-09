@@ -194,13 +194,6 @@ app.get('/backcountry', function(req, res) {
 	});
 });
 
-// test backcountry conditions page
-app.get('/backcountryTest', function(req, res) {
-    res.status(200).render('pages/backcountryTest',{
-        my_title:"Backcountry Conditions Test"
-    });
-});
-
 // login page
 app.get('/login', function(req, res) {
   

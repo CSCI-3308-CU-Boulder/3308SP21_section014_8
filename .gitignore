@@ -1,3 +1,3 @@
-*.lnk
+ls*.lnk
 /Code/.dockerignore
 /Code/node_modules

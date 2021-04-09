@@ -11,7 +11,7 @@ var assert = chai.assert;
 
 //Import complete
 
-//test cases
+// //test cases
 describe("Server!", () => {
 
 	//testing that test cases work by testing if Resorts loads
@@ -56,7 +56,7 @@ describe("Server!", () => {
         .end((err, res) => {
         	//console.log("res" + res);
         	//expecting the page to load and return 200 tells us that
-          expect(res).to.have.status(400);
+          expect(res).to.have.status(200);
           //expecting an error to happen an be thrown
           expect(err);
           done();
@@ -69,7 +69,7 @@ describe("Server!", () => {
       chai
         .request(server)
         .post('/login/register')
-        .send({firstName: "test", lastName: "user", email: "test@gmail.com", username: "tester", psw: "123abc", cpsw: "123abc", visitor_type: '1', resort_days: '2'})
+        .send({firstName: "test", lastName: "user", email: "test@gmail.com", username: "tester", psw: "123abc", cpsw: "123abc", acts: '1', resort_days: '2'})
         .end((err, res) => {
         	//console.log("res" + res.text);
         //expecting the page to load and return 200 tells us that
@@ -90,10 +90,35 @@ describe("Server!", () => {
         .end((err, res) => {
         	//console.log("res" + res.text);
         //expecting the page to load and return 200 tells us that
-          expect(res).to.have.status(400);
+          expect(res).to.have.status(200);
           //expecting there to be an error message
           expect(err);
           done();
         });
+    });
+});
+
+describe('Conditions Tests', () => {
+    it("Making sure that resort conditions page is loaded", done => {
+        //making sure resorts page loads
+        chai
+            .request(server)
+            .get('/resorts')
+            .end((err, res) => {
+                // console.log("res.body" + res.body);
+                expect(res).to.have.status(200);
+                done();
+            });
+    });
+    it("Making sure that backcountry conditions page is loaded", done => {
+        //making sure resorts page loads
+        chai
+            .request(server)
+            .get('/backcountry')
+            .end((err, res) => {
+                // console.log("res.body" + res.body);
+                expect(res).to.have.status(200);
+                done();
+            });
     });
 });
