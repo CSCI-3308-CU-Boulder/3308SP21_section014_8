@@ -46,13 +46,90 @@
 <!-- The above form action divs are not connected to anything, but the ability to display data from the database should work. -->
 <!-- Unsure about how to test this without adding to the database, however. -->
 <div class="container">
-    <table id="statsTable">
+    <table id="statsTableUser">
         <%
             console.log(data[0]);
         %>
         <%
             console.log(data.length);
         %>
+        <tr>
+            <th>Number of Resorts Visited:</th>
+            <%
+                var stringBuild = '';
+                for (var i = 0; i < data.length; i++)
+                {
+                    stringBuild += '<td> ';
+                    stringBuild += data[i].num_resorts_visited;
+                    stringBuild += '</td>';
+                }
+            %>
+            <%- stringBuild %>
+        </tr>
+        <tr>
+            <th>Days Spent At Resorts:</th>
+            <%
+                var stringBuild = '';
+                for (var i = 0; i < data.length; i++)
+                {
+                    stringBuild += '<td> ';
+                    stringBuild += data[i].days;
+                    stringBuild += '</td>';
+                }
+            %>
+            <%- stringBuild %>
+        </tr>
+        <tr>
+            <th>Runs Done: </th>
+            <%
+                var stringBuild = '';
+                for (var i = 0; i < data.length; i++)
+                {
+                    stringBuild += '<td> ';
+                    stringBuild += data[i].num_runs_done;
+                    stringBuild += '</td>';
+                }
+            %>
+            <%- stringBuild %>
+        </tr>
+        <tr>
+            <th>Vertical Feet Done: </th>
+            <%
+                var stringBuild = '';
+                for (var i = 0; i < data.length; i++)
+                {
+                    stringBuild += '<td> ';
+                    stringBuild += data[i].vertical_feet;
+                    stringBuild += '</td>';
+                }
+            %>
+            <%- stringBuild %>
+        </tr>
+    </table>
+</div>
+
+<br>
+
+<div class="container">
+    <table id="statsTableOthers">
+        <%
+            console.log(data[0]);
+        %>
+        <%
+            console.log(data.length);
+        %>
+        <tr>
+            <th>User Name:</th>
+            <%
+                var stringBuild = '';
+                for (var i = 0; i < data.length; i++)
+                {
+                    stringBuild += '<td> ';
+                    stringBuild += data[i].user_name;
+                    stringBuild += '</td>';
+                }
+            %>
+        </tr>
         <tr>
             <th>Number of Resorts Visited:</th>
             <%

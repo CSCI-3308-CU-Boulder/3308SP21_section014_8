@@ -5,7 +5,7 @@ let chai = require("chai");
 // Chai HTTP provides an interface for live integration testing of the API's.
 let chaiHttp = require("chai-http");
 chai.should();
-chai.use(chaiHttp); 
+chai.use(chaiHttp);
 const { expect } = chai;
 var assert = chai.assert;
 
