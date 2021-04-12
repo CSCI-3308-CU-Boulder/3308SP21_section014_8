@@ -5,7 +5,7 @@
 
 <br>
 <div class="container">
-	<form action="/stats/add" method="post" id="add_form-1" style="visibility: hidden, height: 0">
+	<form action="/stats/add" method="post" id="add_form-1" style="visibility: hidden; height: 0">
         <div class="form-group row">
             <label  class="col-sm-2 col-form-label" for="visitorName">Visitor Name</label>
             <div class="col-sm-10">
@@ -56,17 +56,13 @@
         <tr>
             <th>Number of Resorts Visited:</th>
             <%
-                var stringBuild = '';
-                for (var i = 0; i < data.length; i++)
-                {
-                    if(user)
-                    {
-                        stringBuild += '<td> ';
-                        stringBuild += data[i].num_resorts_visited;
+            var stringBuild = '';
+                data.forEach(function(item) {
+                        stringBuild += '<td>';
+                        stringBuild += item.num_resorts_visited;
                         stringBuild += '</td>';
-                    }
-                }
-            %>
+                    }); %>
+                    <%- stringBuild %>
         </tr>
         <tr>
             <th>Days Spent At Resorts:</th>

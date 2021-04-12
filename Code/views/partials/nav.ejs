@@ -11,7 +11,7 @@
               <a class="nav-link" href="/map">Resorts</a>
           </li>
           <li class="nav-item <% if(my_title == "Stat Tracker"){ %> <%- 'active' %> <% } %>">
-              <a class="nav-link" href="/stats">Stat Tracker</a>
+              <% if(user) { %> <a class="nav-link" href="/stats">Stat Tracker</a> <% } %>
           </li>
       </ul>
       <% if(!user) { %>
