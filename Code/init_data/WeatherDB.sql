@@ -51,7 +51,9 @@ CREATE TABLE IF NOT EXISTS users(
 );
 
 INSERT INTO users (user_name,password,email,name,visitor_type,days) VALUES 
-('ralphie1','buffs1','ralphie@colorado.edu','Ralphie Buffalo',ARRAY [1,2],ARRAY [2,5,7]);
+('ralphie1','buffs1','ralphie@colorado.edu','Ralphie Buffalo',ARRAY [1,2],ARRAY [2,5,7]),
+('BigBuff','bigbuffone','buffs@colorado.edu','Buffalo One',ARRAY [3],ARRAY [1,4,6]),
+('Admins','abc123','admin@colorado.edu','Admin One',ARRAY [4],ARRAY [2]);
 
 DROP TABLE IF EXISTS stats CASCADE;
 CREATE TABLE IF NOT EXISTS stats(
@@ -64,7 +66,9 @@ CREATE TABLE IF NOT EXISTS stats(
 );
 
 INSERT INTO stats (num_runs_done,vertical_feet,num_resorts_visited,resort_ids,days,user_name) VALUES
-(287,333000,6,ARRAY[5,6,7,8,12,3],32,'ralphie1');
+(200,333000,6,ARRAY[5,6,7,8,12,3],32,'ralphie1'),
+(135,237888,3,ARRAY[8,12,3],17,'BigBuff'),
+(56,100000,5,ARRAY[5,6,7,2,3],5,'Admins');
 
 INSERT INTO resorts (resort_id,resort_name, number_runs_open, number_runs_groomed, percent_open, number_green, number_blue, number_black, number_lifts, acreage, address, phone_number)
 VALUES(1,'PowderHorn Mountain Resort',50,15,1,8,15,27,5,1600,'48338 Powderhorn Rd, Mesa, CO 81643','9702685700'),
