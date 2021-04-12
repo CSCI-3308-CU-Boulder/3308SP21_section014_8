@@ -59,9 +59,12 @@
                 var stringBuild = '';
                 for (var i = 0; i < data.length; i++)
                 {
-                    stringBuild += '<td> ';
-                    stringBuild += data[i].num_resorts_visited;
-                    stringBuild += '</td>';
+                    if(user)
+                    {
+                        stringBuild += '<td> ';
+                        stringBuild += data[i].num_resorts_visited;
+                        stringBuild += '</td>';
+                    }
                 }
             %>
         </tr>
@@ -71,9 +74,12 @@
                 var stringBuild = '';
                 for (var i = 0; i < data.length; i++)
                 {
-                    stringBuild += '<td> ';
-                    stringBuild += data[i].days;
-                    stringBuild += '</td>';
+                    if(user)
+                    {
+                        stringBuild += '<td> ';
+                        stringBuild += data[i].days;
+                        stringBuild += '</td>';
+                    }
                 }
             %>
             <%- stringBuild %>
@@ -84,9 +90,12 @@
                 var stringBuild = '';
                 for (var i = 0; i < data.length; i++)
                 {
-                    stringBuild += '<td> ';
-                    stringBuild += data[i].num_runs_done;
-                    stringBuild += '</td>';
+                    if(user)
+                    {
+                        stringBuild += '<td> ';
+                        stringBuild += data[i].num_runs_done;
+                        stringBuild += '</td>';
+                    }
                 }
             %>
             <%- stringBuild %>
@@ -97,9 +106,12 @@
                 var stringBuild = '';
                 for (var i = 0; i < data.length; i++)
                 {
-                    stringBuild += '<td> ';
-                    stringBuild += data[i].vertical_feet;
-                    stringBuild += '</td>';
+                    if(user)
+                    {
+                        stringBuild += '<td> ';
+                        stringBuild += data[i].vertical_feet;
+                        stringBuild += '</td>';
+                    }
                 }
             %>
             <%- stringBuild %>
@@ -116,6 +128,8 @@
         %>
         <%
             console.log(data.length);
+            console.log(user);
+            console.log(name);
         %>
         <tr>
             <th>User Name:</th>
@@ -123,9 +137,13 @@
                 var stringBuild = '';
                 for (var i = 0; i < data.length; i++)
                 {
-                    stringBuild += '<td> ';
-                    stringBuild += data[i].user_name;
-                    stringBuild += '</td>';
+                    if(!user)
+                    {
+                        stringBuild += '<td> ';
+                        stringBuild += data[i].user_name;
+                        stringBuild += '</td>';
+                    }
+
                 }
             %>
             <%- stringBuild %>
@@ -136,9 +154,12 @@
                 var stringBuild = '';
                 for (var i = 0; i < data.length; i++)
                 {
-                    stringBuild += '<td> ';
-                    stringBuild += data[i].num_resorts_visited;
-                    stringBuild += '</td>';
+                    if(!user)
+                    {
+                        stringBuild += '<td> ';
+                        stringBuild += data[i].num_resorts_visited;
+                        stringBuild += '</td>';
+                    }
                 }
             %>
             <%- stringBuild %>
@@ -149,9 +170,12 @@
                 var stringBuild = '';
                 for (var i = 0; i < data.length; i++)
                 {
-                    stringBuild += '<td> ';
-                    stringBuild += data[i].days;
-                    stringBuild += '</td>';
+                    if(!user)
+                    {
+                        stringBuild += '<td> ';
+                        stringBuild += data[i].days;
+                        stringBuild += '</td>';
+                    }
                 }
             %>
             <%- stringBuild %>
@@ -162,9 +186,12 @@
                 var stringBuild = '';
                 for (var i = 0; i < data.length; i++)
                 {
-                    stringBuild += '<td> ';
-                    stringBuild += data[i].num_runs_done;
-                    stringBuild += '</td>';
+                    if(!user)
+                    {
+                        stringBuild += '<td> ';
+                        stringBuild += data[i].num_runs_done;
+                        stringBuild += '</td>';
+                    }
                 }
             %>
             <%- stringBuild %>
@@ -175,9 +202,12 @@
                 var stringBuild = '';
                 for (var i = 0; i < data.length; i++)
                 {
-                    stringBuild += '<td> ';
-                    stringBuild += data[i].vertical_feet;
-                    stringBuild += '</td>';
+                    if(!user)
+                    {
+                        stringBuild += '<td> ';
+                        stringBuild += data[i].vertical_feet;
+                        stringBuild += '</td>';
+                    }
                 }
             %>
             <%- stringBuild %>
