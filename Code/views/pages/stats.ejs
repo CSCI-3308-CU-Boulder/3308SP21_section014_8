@@ -54,6 +54,23 @@
             console.log(data.length);
         %>
         <tr>
+            <th>User Name:</th>
+            <%
+                var stringBuild = '';
+                for (var i = 0; i < data.length; i++)
+                {
+                    if(user)
+                    {
+                        stringBuild += '<td> ';
+                        stringBuild += data[i].user_name;
+                        stringBuild += '</td>';
+                    }
+
+                }
+            %>
+            <%- stringBuild %>
+        </tr>
+        <tr>
             <th>Number of Resorts Visited:</th>
             <%
                 var stringBuild = '';
@@ -67,6 +84,7 @@
                     }
                 }
             %>
+            <%- stringBuild %>
         </tr>
         <tr>
             <th>Days Spent At Resorts:</th>
