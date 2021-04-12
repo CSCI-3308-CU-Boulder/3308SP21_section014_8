@@ -64,10 +64,7 @@ CREATE TABLE IF NOT EXISTS stats(
 );
 
 INSERT INTO stats (num_runs_done,vertical_feet,num_resorts_visited,resort_ids,days,user_name) VALUES
-(356,400000,8,ARRAY [4,5,6,7,9,10,12,13],44,'ccaulk'),
-(200,247566,5,ARRAY [1,2,3,4,5],24,'bblack'),
-(134,165987,2,ARRAY[7,13],17,'nrieck'),
-(287,333000,6,ARRAY[5,6,7,8,12,3],32,'dhockstein');
+(287,333000,6,ARRAY[5,6,7,8,12,3],32,'ralphie1');
 
 INSERT INTO resorts (resort_id,resort_name, number_runs_open, number_runs_groomed, percent_open, number_green, number_blue, number_black, number_lifts, acreage, address, phone_number)
 VALUES(1,'PowderHorn Mountain Resort',50,15,1,8,15,27,5,1600,'48338 Powderhorn Rd, Mesa, CO 81643','9702685700'),
