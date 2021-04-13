@@ -290,20 +290,29 @@ app.post('/login/register',function(req,res) {
 
 
 app.get('/stats', function(req, res) {
-    var query = 'select * from stats;';
-	db.any(query)
-        .then(function (rows) {
-            res.status(200).render('pages/stats',{
-				my_title: "Stat Tracker",
-				data: rows
-			});
+    var usr = app.locals.user;
+    var query = `select * from stats where user_name = '${usr}';`;
+    var query2 = `select * from stats;`;
 
-        })
+		db.task('get-everything', task => {
+      return task.batch([
+          task.any(query),
+          task.any(query2)
+      ]);
+  })
+        .then(function (rows) {
+          res.status(200).render('pages/stats',{
+				  my_title: "Stat Tracker",
+				  user_stats: rows[0],
+          all_stats: rows[1]
+			  });
+      })
         .catch(function (err) {
             console.log('error', err);
             res.status(400).render('pages/stats', { // Status code here
                 my_title: 'Stat Tracker',
-                data: ''
+                user_stats: '',
+                all_stats: ''
             });
         });
 });

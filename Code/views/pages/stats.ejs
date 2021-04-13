@@ -47,87 +47,25 @@
 <!-- Unsure about how to test this without adding to the database, however. -->
 <div class="container">
     <table id="statsTableUser">
-        <%
-            console.log(data[0]);
-        %>
-        <%
-            console.log(data.length);
-        %>
         <tr>
-            <th>User Name:</th>
-            <%
-                var stringBuild = '';
-                for (var i = 0; i < data.length; i++)
-                {
-                    if(user)
-                    {
-                        stringBuild += '<td> ';
-                        stringBuild += data[i].user_name;
-                        stringBuild += '</td>';
-                    }
-
-                }
-            %>
-            <%- stringBuild %>
+            <th>User Name:</th>            
+            <td class="text-right"><%- user_stats[0].user_name %></td>
         </tr>
         <tr>
             <th>Number of Resorts Visited:</th>
-            <%
-            var stringBuild = '';
-                data.forEach(function(item) {
-                        stringBuild += '<td>';
-                        stringBuild += item.num_resorts_visited;
-                        stringBuild += '</td>';
-                    }); %>
-                    <%- stringBuild %>
+            <td class="text-right"><%- user_stats[0].num_resorts_visited %></td>
         </tr>
         <tr>
             <th>Days Spent At Resorts:</th>
-            <%
-                var stringBuild = '';
-                for (var i = 0; i < data.length; i++)
-                {
-                    if(user)
-                    {
-                        stringBuild += '<td> ';
-                        stringBuild += data[i].days;
-                        stringBuild += '</td>';
-                    }
-                }
-            %>
-            <%- stringBuild %>
+            <td class="text-right"><%- user_stats[0].days %></td>
         </tr>
         <tr>
             <th>Runs Done: </th>
-            <%
-                var stringBuild = '';
-                for (var i = 0; i < data.length; i++)
-                {
-                    if(user)
-                    {
-                        stringBuild += '<td> ';
-                        stringBuild += data[i].num_runs_done;
-                        stringBuild += '</td>';
-                    }
-                }
-            %>
-            <%- stringBuild %>
+            <td class="text-right"><%- user_stats[0].num_runs_done %></td>
         </tr>
         <tr>
             <th>Vertical Feet Done: </th>
-            <%
-                var stringBuild = '';
-                for (var i = 0; i < data.length; i++)
-                {
-                    if(user)
-                    {
-                        stringBuild += '<td> ';
-                        stringBuild += data[i].vertical_feet;
-                        stringBuild += '</td>';
-                    }
-                }
-            %>
-            <%- stringBuild %>
+            <td class="text-right"><%- user_stats[0].vertical_feet %></td>
         </tr>
     </table>
 </div>
@@ -136,94 +74,60 @@
 
 <div class="container">
     <table id="statsTableOthers">
-        <%
-            console.log(data[0]);
-        %>
-        <%
-            console.log(data.length);
-            console.log(user);
-            console.log(name);
-        %>
         <tr>
             <th>User Name:</th>
             <%
-                var stringBuild = '';
-                for (var i = 0; i < data.length; i++)
-                {
-                    if(!user)
-                    {
-                        stringBuild += '<td> ';
-                        stringBuild += data[i].user_name;
-                        stringBuild += '</td>';
-                    }
+                var cols = ''; 
 
-                }
+                all_stats.forEach(function(item) {
+                    cols += '<td class="text-right">' + item.user_name + '</td>';
+                });
             %>
-            <%- stringBuild %>
+            <%- cols %>
         </tr>
         <tr>
             <th>Number of Resorts Visited:</th>
             <%
-                var stringBuild = '';
-                for (var i = 0; i < data.length; i++)
-                {
-                    if(!user)
-                    {
-                        stringBuild += '<td> ';
-                        stringBuild += data[i].num_resorts_visited;
-                        stringBuild += '</td>';
-                    }
-                }
+                var cols = ''; 
+
+                all_stats.forEach(function(item) {
+                    cols += '<td class="text-right">' + item.num_resorts_visited + '</td>';
+                });
             %>
-            <%- stringBuild %>
+            <%- cols %>            
         </tr>
         <tr>
             <th>Days Spent At Resorts:</th>
             <%
-                var stringBuild = '';
-                for (var i = 0; i < data.length; i++)
-                {
-                    if(!user)
-                    {
-                        stringBuild += '<td> ';
-                        stringBuild += data[i].days;
-                        stringBuild += '</td>';
-                    }
-                }
-            %>
-            <%- stringBuild %>
+            var cols = ''; 
+
+            all_stats.forEach(function(item) {
+                cols += '<td class="text-right">' + item.days + '</td>';
+            });
+        %>
+        <%- cols %>
         </tr>
         <tr>
             <th>Runs Done: </th>
             <%
-                var stringBuild = '';
-                for (var i = 0; i < data.length; i++)
-                {
-                    if(!user)
-                    {
-                        stringBuild += '<td> ';
-                        stringBuild += data[i].num_runs_done;
-                        stringBuild += '</td>';
-                    }
-                }
-            %>
-            <%- stringBuild %>
+            var cols = ''; 
+
+            all_stats.forEach(function(item) {
+                cols += '<td class="text-right">' + item.num_runs_done + '</td>';
+            });
+        %>
+        <%- cols %>
         </tr>
         <tr>
             <th>Vertical Feet Done: </th>
             <%
-                var stringBuild = '';
-                for (var i = 0; i < data.length; i++)
-                {
-                    if(!user)
-                    {
-                        stringBuild += '<td> ';
-                        stringBuild += data[i].vertical_feet;
-                        stringBuild += '</td>';
-                    }
-                }
+                var cols = ''; 
+
+                all_stats.forEach(function(item) {
+                    cols += '<td class="text-right">' + item.vertical_feet + '</td>';
+                });
             %>
-            <%- stringBuild %>
+            <%- cols %>
         </tr>
     </table>
 </div>
