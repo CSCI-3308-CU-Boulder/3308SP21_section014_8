@@ -1,7 +1,7 @@
 let skiResorts = {
     "vail": {
-        "lat": "39.6403",
-        "long": "-106.3742",
+        "lat": "39.605042",
+        "long": "-106.339287",
         "tz": "America/Denver"
     },
     "beaver-creek": {
@@ -30,8 +30,8 @@ let skiResorts = {
         "tz": "America/Denver"
     },
     "steamboat-springs": {
-        "lat": "40.4850",
-        "long": "-106.8317",
+        "lat": "40.453926",
+        "long": "-106.774272",
         "tz": "America/Denver"
     },
     "wolf-creek": {
