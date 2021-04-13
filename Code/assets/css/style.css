@@ -9,7 +9,7 @@ h3.home {
 }
 table:not(#snowTable), th, td{
     border: 2px solid blue;
-    width: 50%;
+    width: 25%;
     margin-left: auto;
     margin-right: auto;
     white-space: nowrap;

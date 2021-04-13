@@ -46,26 +46,26 @@
 <!-- The above form action divs are not connected to anything, but the ability to display data from the database should work. -->
 <!-- Unsure about how to test this without adding to the database, however. -->
 <div class="container">
-    <table id="statsTableUser">
+    <table id="statsTableUser" class="w-100">
         <tr>
             <th>User Name:</th>            
-            <td class="text-right"><%- user_stats[0].user_name %></td>
+            <td class="text-center"><%- user_stats[0].user_name %></td>
         </tr>
         <tr>
             <th>Number of Resorts Visited:</th>
-            <td class="text-right"><%- user_stats[0].num_resorts_visited %></td>
+            <td class="text-center"><%- user_stats[0].num_resorts_visited %></td>
         </tr>
         <tr>
             <th>Days Spent At Resorts:</th>
-            <td class="text-right"><%- user_stats[0].days %></td>
+            <td class="text-center"><%- user_stats[0].days %></td>
         </tr>
         <tr>
             <th>Runs Done: </th>
-            <td class="text-right"><%- user_stats[0].num_runs_done %></td>
+            <td class="text-center"><%- user_stats[0].num_runs_done %></td>
         </tr>
         <tr>
             <th>Vertical Feet Done: </th>
-            <td class="text-right"><%- user_stats[0].vertical_feet %></td>
+            <td class="text-center"><%- user_stats[0].vertical_feet %></td>
         </tr>
     </table>
 </div>
@@ -73,7 +73,7 @@
 <br>
 
 <div class="container">
-    <table id="statsTableOthers">
+    <table id="statsTableOthers" class="w-100">
         <tr>
             <th>User Name:</th>
             <%
@@ -91,7 +91,7 @@
                 var cols = ''; 
 
                 all_stats.forEach(function(item) {
-                    cols += '<td class="text-right">' + item.num_resorts_visited + '</td>';
+                    cols += '<td class="text-center">' + item.num_resorts_visited + '</td>';
                 });
             %>
             <%- cols %>            
@@ -102,7 +102,7 @@
             var cols = ''; 
 
             all_stats.forEach(function(item) {
-                cols += '<td class="text-right">' + item.days + '</td>';
+                cols += '<td class="text-center">' + item.days + '</td>';
             });
         %>
         <%- cols %>
@@ -113,7 +113,7 @@
             var cols = ''; 
 
             all_stats.forEach(function(item) {
-                cols += '<td class="text-right">' + item.num_runs_done + '</td>';
+                cols += '<td class="text-center">' + item.num_runs_done + '</td>';
             });
         %>
         <%- cols %>
@@ -124,7 +124,7 @@
                 var cols = ''; 
 
                 all_stats.forEach(function(item) {
-                    cols += '<td class="text-right">' + item.vertical_feet + '</td>';
+                    cols += '<td class="text-center">' + item.vertical_feet + '</td>';
                 });
             %>
             <%- cols %>
