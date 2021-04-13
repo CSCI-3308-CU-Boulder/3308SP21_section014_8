@@ -9,7 +9,7 @@ function capitalizeFirst(str) {
     let newArr = str.split(' ');
     newArr.forEach((word, index) => {
         newArr[index] = word[0].toUpperCase() + word.substring(1);
-    })
+    });
     return newArr.join(' ');
 }
 
@@ -29,6 +29,6 @@ function addResorts(resortObj, classToAdd, idToAddTo) {
 
         $('#' + idToAddTo).append(newListItem);
         console.log($('#' + idToAddTo).append(newListItem));
-    })
+    });
 }
 

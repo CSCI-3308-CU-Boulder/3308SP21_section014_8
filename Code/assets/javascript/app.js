@@ -1,6 +1,7 @@
 /* When the page is ready, load resorts into dropdown, add a map centered on
     Colorado, and set a click function for the resorts to call the
     getWeather function. */
+
 $(document).ready(() => {
     let resortObj;
     /* Add resorts to the dropdown located in the navbar, they will be added
@@ -29,5 +30,12 @@ $(document).ready(() => {
 
         /* Call the getWeather function with the clicked item's lat, long. */
         getWeather(lat, lon);
-    })
-})
+    });
+});
+
+function addResortsSetter() {
+    let resortObj;
+    resortObj = skiResorts;
+    addResorts(resortObj, 'nav-item', 'nav-resorts');
+    console.log("Resorts being set");
+}
