@@ -25,7 +25,9 @@ $(document).ready(() => {
             lat = resortObj[resortName].lat,
             lon = resortObj[resortName].long;
 
-        console.log(resortObj[resortName].lat);
+        console.log(resortName);
+
+        document.getElementById("button-text").innerHTML = addSpaces(capitalizeFirst(resortName));
 
 
         /* Call the getWeather function with the clicked item's lat, long. */
