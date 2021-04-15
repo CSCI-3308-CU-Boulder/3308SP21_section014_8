@@ -1,0 +1,134 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+
+
+<br>
+<div class="container">
+	<form action="/stats/add" method="post" id="add_form-1" style="visibility: hidden; height: 0">
+        <div class="form-group row">
+            <label  class="col-sm-2 col-form-label" for="visitorName">Visitor Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="visitorName" name="visitor_name" placeholder="Enter Visitor Name">
+            </div>
+        </div>
+        <div class="col-md-12 text-center">
+            <div class="form-group row">
+                <label for="field_resort_name">What resort did you ski at?</label>
+                <input type="text" id="field_resort_name" name="field_resort_name">
+                <br>
+            </div>
+            <div class="form-group row">
+                <label for="field_resort_days">How many days have you been at the resort?</label>
+                <input type="text" id="field_resort_days" name="field_resort_days">
+                <br>
+            </div>
+            <div class="form-group row">
+                <label for="field_runs_beginner">How many of these runs were easy-level (green circle)?</label>
+                <input type="text" id="field_runs_beginner" name="field_runs_beginner">
+                <br>
+            </div>
+            <div class="form-group row">
+                <label for="field_runs_intermediate">How many of these runs were intermediate-level (blue square)?</label>
+                <input type="text" id="field_runs_intermediate" name="field_runs_intermediate">
+                <br>
+            </div>
+            <div class="form-group row">
+                <label for="field_runs_advancedPlus">How many of these runs were advanced-level or expert-level (black diamonds)?</label>
+                <input type="text" id="field_runs_advancedPlus" name="field_runs_advancedPlus">
+                <br>
+            </div>
+            <input type="submit" value="submit" class="btn btn-primary btn-block">
+        </div>
+    </form>
+</div>
+<br>
+<!-- The above form action divs are not connected to anything, but the ability to display data from the database should work. -->
+<!-- Unsure about how to test this without adding to the database, however. -->
+<div class="container">
+    <table id="statsTableUser" class="w-100">
+        <tr>
+            <th>User Name:</th>            
+            <td class="text-center"><%- user_stats[0].user_name %></td>
+        </tr>
+        <tr>
+            <th>Number of Resorts Visited:</th>
+            <td class="text-center"><%- user_stats[0].num_resorts_visited %></td>
+        </tr>
+        <tr>
+            <th>Days Spent At Resorts:</th>
+            <td class="text-center"><%- user_stats[0].days %></td>
+        </tr>
+        <tr>
+            <th>Runs Done: </th>
+            <td class="text-center"><%- user_stats[0].num_runs_done %></td>
+        </tr>
+        <tr>
+            <th>Vertical Feet Done: </th>
+            <td class="text-center"><%- user_stats[0].vertical_feet %></td>
+        </tr>
+    </table>
+</div>
+
+<br>
+
+<div class="container">
+    <table id="statsTableOthers" class="w-100">
+        <tr>
+            <th>User Name:</th>
+            <%
+                var cols = ''; 
+
+                all_stats.forEach(function(item) {
+                    cols += '<td class="text-center">' + item.user_name + '</td>';
+                });
+            %>
+            <%- cols %>
+        </tr>
+        <tr>
+            <th>Number of Resorts Visited:</th>
+            <%
+                var cols = ''; 
+
+                all_stats.forEach(function(item) {
+                    cols += '<td class="text-center">' + item.num_resorts_visited + '</td>';
+                });
+            %>
+            <%- cols %>            
+        </tr>
+        <tr>
+            <th>Days Spent At Resorts:</th>
+            <%
+            var cols = ''; 
+
+            all_stats.forEach(function(item) {
+                cols += '<td class="text-center">' + item.days + '</td>';
+            });
+        %>
+        <%- cols %>
+        </tr>
+        <tr>
+            <th>Runs Done: </th>
+            <%
+            var cols = ''; 
+
+            all_stats.forEach(function(item) {
+                cols += '<td class="text-center">' + item.num_runs_done + '</td>';
+            });
+        %>
+        <%- cols %>
+        </tr>
+        <tr>
+            <th>Vertical Feet Done: </th>
+            <%
+                var cols = ''; 
+
+                all_stats.forEach(function(item) {
+                    cols += '<td class="text-center">' + item.vertical_feet + '</td>';
+                });
+            %>
+            <%- cols %>
+        </tr>
+    </table>
+</div>
+<%- include('../partials/footer') %>
