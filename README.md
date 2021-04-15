@@ -26,8 +26,8 @@ http://skibumz.herokuapp.com/
 
 ##Organization 
 All code is in the Code folder  
--db has datebase files  
--heroku has files to be hosted on heroku  
+- db has datebase files  
+- heroku has files to be hosted on heroku  
 -src has the source code  
  -assests has the assests for the conditions page and for css style for website  
  -test has test cases  
