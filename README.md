@@ -40,6 +40,6 @@ OtherFolders
 - .vscode has some json settings
 - Milestones are project milestones
 - TAMeetings document the meetings
-- .gitignore ignores so things
+- .gitignore ignores some items
 - README.md this file
 
