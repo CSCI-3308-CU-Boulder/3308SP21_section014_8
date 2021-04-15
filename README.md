@@ -24,7 +24,7 @@ docker-compose run web npm install
 Otherwise the project is deployed to Heroku here  
 http://skibumz.herokuapp.com/   
 
-##Organization 
+## Organization   
 All code is in the Code folder  
 - db has datebase files  
 - heroku has files to be hosted on heroku  
@@ -36,4 +36,10 @@ All code is in the Code folder
     - partials has header, footer, and nav bar  
   - server.js is the nodejs to run server side  
 - other files are dependencies  
+OtherFolders
+- .vscode has some json settings
+- Milestones are project milestones
+- TAMeetings document the meetings
+- .gitignore ignores so things
+- README.md this file
 
