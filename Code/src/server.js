@@ -225,14 +225,16 @@ app.post('/login/register',function(req,res) {
   var query = `select * from users where user_name = '${usr}';`;
   var insert = `INSERT INTO users (user_name,password,email,name,visitor_type,days) VALUES(
     '${usr}','${psw}','${email}','${name}',ARRAY [${acts}],ARRAY [${days}]);`;
-  var insert_stats = `INSERT INTO stats (0, 0, 0,ARRAY [0], 0, ${usr});`;
+  var insert_stats = `INSERT INTO stats (num_runs_done,vertical_feet,num_resorts_visited,days,user_name) VALUES
+  (0,0,0,0,'${usr}');`;
   db.none(query)
     .then(function (data) {
       if(psw == cpsw) {
         app.locals.name = name;
         app.locals.user = usr;
         db.query(insert);
-        // db.query(insert_stats);
+        db.query(insert_stats);
+        console.log(insert_stats);
         if(usr == "tester"){
         	db.query("delete from users where user_name = 'tester';");
         }
