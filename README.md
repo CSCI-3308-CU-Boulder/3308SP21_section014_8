@@ -22,6 +22,18 @@ Our website will allow users to easily plan their ski/snowboard trip in Colorado
 If you want to run on localhost and docker compose is not working run
 docker-compose run web npm install  
 Otherwise the project is deployed to Heroku here  
-http://skibumz.herokuapp.com/ 
+http://skibumz.herokuapp.com/   
 
+##Organization 
+All code is in the Code folder  
+  db has datebase files  
+  heroku has files to be hosted on heroku  
+  src has the source code  
+    assests has the assests for the conditions page and for css style for website  
+    test has test cases  
+    views has the ejs files  
+      pages has pages to load  
+      partials has header, footer, and nav bar  
+    server.js is the nodejs to run server side  
+  other files are dependencies  
 
