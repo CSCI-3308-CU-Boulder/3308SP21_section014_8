@@ -26,14 +26,14 @@ http://skibumz.herokuapp.com/
 
 ##Organization 
 All code is in the Code folder  
-  db has datebase files  
-  heroku has files to be hosted on heroku  
-  src has the source code  
-    assests has the assests for the conditions page and for css style for website  
-    test has test cases  
-    views has the ejs files  
-      pages has pages to load  
-      partials has header, footer, and nav bar  
-    server.js is the nodejs to run server side  
-  other files are dependencies  
+  -db has datebase files  
+  -heroku has files to be hosted on heroku  
+  -src has the source code  
+    -assests has the assests for the conditions page and for css style for website  
+    -test has test cases  
+    -views has the ejs files  
+      -pages has pages to load  
+      -partials has header, footer, and nav bar  
+    -server.js is the nodejs to run server side  
+  -other files are dependencies  
 
