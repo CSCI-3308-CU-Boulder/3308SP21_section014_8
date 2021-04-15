@@ -3,50 +3,51 @@
 
 
 
-<br>
-<div class="container">
-	<form action="/stats/add" method="post" id="add_form-1" style="visibility: hidden; height: 0">
+<div class="container w-50 mb-5">
+	<form action="/stats/add" method="post" id="add_form-1">
         <div class="form-group row">
-            <label  class="col-sm-2 col-form-label" for="visitorName">Visitor Name</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="visitorName" name="visitor_name" placeholder="Enter Visitor Name">
+            <label for="visitorName" class="col col-form-label">Visitor Name</label>
+            <div class="col">
+                <input type="text" class="form-control" id="visitorName" placeholder="Enter Visitor Name">
             </div>
         </div>
-        <div class="col-md-12 text-center">
-            <div class="form-group row">
-                <label for="field_resort_name">What resort did you ski at?</label>
-                <input type="text" id="field_resort_name" name="field_resort_name">
-                <br>
+        <div class="form-group row">
+            <label for="field_resort_name" class="col col-form-label">What resort did you ski at?</label>
+            <div class="col">
+                <input type="text" class="form-control" id="field_resort_name" name="field_resort_name" placeholder="Enter Resort Name">
             </div>
-            <div class="form-group row">
-                <label for="field_resort_days">How many days have you been at the resort?</label>
-                <input type="text" id="field_resort_days" name="field_resort_days">
-                <br>
-            </div>
-            <div class="form-group row">
-                <label for="field_runs_beginner">How many of these runs were easy-level (green circle)?</label>
-                <input type="text" id="field_runs_beginner" name="field_runs_beginner">
-                <br>
-            </div>
-            <div class="form-group row">
-                <label for="field_runs_intermediate">How many of these runs were intermediate-level (blue square)?</label>
-                <input type="text" id="field_runs_intermediate" name="field_runs_intermediate">
-                <br>
-            </div>
-            <div class="form-group row">
-                <label for="field_runs_advancedPlus">How many of these runs were advanced-level or expert-level (black diamonds)?</label>
-                <input type="text" id="field_runs_advancedPlus" name="field_runs_advancedPlus">
-                <br>
-            </div>
-            <input type="submit" value="submit" class="btn btn-primary btn-block">
         </div>
+        <div class="form-group row">
+            <label for="field_resort_days" class="col col-form-label">How many days have you been at the resort?</label>
+            <div class="col">
+                <input type="text" class="form-control" id="field_resort_days" name="field_resort_days" placeholder="Enter Number of Days">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="field_runs_beginner" class="col col-form-label">How many green runs?</label>
+            <div class="col">
+                <input type="text" class="form-control" id="field_runs_beginner" name="field_runs_beginner" placeholder="Enter Number of Greens">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="field_runs_intermediate" class="col col-form-label">How many blue runs?</label>
+            <div class="col">
+                <input type="text" class="form-control" id="field_runs_intermediate" name="field_runs_intermediate" placeholder="Enter Number of Blues">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="field_runs_advancedPlus" class="col col-form-label">How many black runs?</label>
+            <div class="col">
+                <input type="text" class="form-control" id="field_runs_advancedPlus" name="field_runs_advancedPlus" placeholder="Enter Number of Blacks">
+            </div>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary btn-block w-50 mx-auto">
     </form>
 </div>
-<br>
 <!-- The above form action divs are not connected to anything, but the ability to display data from the database should work. -->
 <!-- Unsure about how to test this without adding to the database, however. -->
 <div class="container">
-    <table id="statsTableUser" class="w-100">
+    <table id="statsTableUser" class="w-75">
         <tr>
             <th>User Name:</th>            
             <td class="text-center"><%- user_stats[0].user_name %></td>
@@ -73,7 +74,7 @@
 <br>
 
 <div class="container">
-    <table id="statsTableOthers" class="w-100">
+    <table id="statsTableOthers" class="w-75">
         <tr>
             <th>User Name:</th>
             <%
